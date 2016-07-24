@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 /**
- * 用于用户登录的servlet
+ * 用于用户管理的servlet
  * @author hshuai
  *
  */
