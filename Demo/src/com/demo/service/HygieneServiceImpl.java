@@ -11,12 +11,12 @@ import com.demo.dao.HygieneMapper;
 import com.demo.entity.Hygiene;
 
 
-/**
+/** 
  * 卫生记录Service实现类
  * @author YJC
  */
 @Service("hygieneService")
-public class HygieneService implements IHygieneService{
+public class HygieneServiceImpl implements IHygieneService{
 	
 	@Resource
 	private HygieneMapper dao;

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/jquery-easyui-1.4.5/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/jquery-easyui-1.4.5/themes/icon.css">
@@ -99,11 +99,12 @@
 		 $.messager.alert("系统提示","请选择要删除的数据！");
 		 return;
 	 }
-	 var strIds=[];
+	 var ids = "";
 	 for(var i=0;i<selectedRows.length;i++){
-		 strIds.push(selectedRows[i].id);
+		 ids += selectedRows[i].hygieneid;
+		 if(i<=selectedRows.length-1)
+		 	ids += ","
 	 }
-	 var ids=strIds.join(",");
 	 $.messager.confirm("系统提示","您确定要删除这<font color=red>"+selectedRows.length+"</font>条数据吗？",function(r){
 		if(r){
 			$.post("${pageContext.request.contextPath}/hygieneController/delete.do",{ids:ids},function(result){
@@ -163,6 +164,10 @@
    
    <form id="fm" method="post" accept-charset="UTF-8">
    	<table cellspacing="8px">
+   		<tr hidden="true">
+   			<td>ID：</td>
+   			<td><input type="text" id="hygieneid" name="hygieneid" /></td>
+   		</tr>
    		<tr>
    			<td>楼号：</td>
    			<td><input type="text" id="hygienefloor" name="hygienefloor" class="easyui-validatebox" required="true"/>&nbsp;<font color="red">*</font></td>
@@ -189,13 +194,9 @@
  		                    </select>
 			</td>
    		</tr>
-   		<!-- <tr>
-   			<td>卫生等级：</td>
-   			<td><input type="text" id="hygienegrade" name="hygienegrade" class="easyui-validatebox" required="true"/>&nbsp;<font color="red">*</font></td>
-   		</tr> -->
    		<tr>
    			<td>检查时间：</td>
-   			<td><input type="text" id="hygienetime" name="hygienetime" class="easyui-validatebox" required="true"/>&nbsp;<font color="red">*</font></td>
+   			<td><input type="text" id="hygienetime" name="hygienetime" class= "easyui-datebox" required="true"/>&nbsp;<font color="red">*</font></td>
    		</tr>
    		<tr>
    			<td>描述：</td>

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.demo.entity.Hygiene;
 import com.demo.entity.Page;
-import com.demo.service.HygieneService;
+import com.demo.service.IHygieneService;
 import com.demo.util.DateJsonValueProcessor;
 import com.demo.util.IDFactory;
 import com.demo.util.ResponseUtil;
@@ -27,13 +27,13 @@ import com.demo.util.StringUtil;
 /**
  * 卫生记录Controller层
  * @author YJC
- *
+ * 
  */
 @Controller
 @RequestMapping("/hygieneController")
 public class HygieneController {
 	@Resource
-	private HygieneService hygieneService;
+	private IHygieneService hygieneService;
 	/**
 	 * 分页条件查询销售机会
 	 * @param page
@@ -75,7 +75,7 @@ public class HygieneController {
 	public String save(Hygiene hygiene,HttpServletResponse response)throws Exception{
 		int resultTotal=0; // 操作的记录条数
 	
-		if(hygiene.getHygieneid()==null){
+		if(hygiene.getHygieneid()==null||hygiene.getHygieneid().equals("")){
 			hygiene.setHygieneid(IDFactory.createId());
 			resultTotal=hygieneService.add(hygiene);
 		}else{
