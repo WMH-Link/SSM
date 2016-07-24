@@ -49,7 +49,7 @@ public class HygieneController {
 		Map<String,Object> map=new HashMap<String,Object>();
 		map.put("hygienefloor", StringUtil.formatLike(hygiene.getHygienefloor()));
 		map.put("hygienedormitoryno", StringUtil.formatLike(hygiene.getHygienedormitoryno()));
-		map.put("hygienegrade", StringUtil.formatLike(hygiene.getHygienegrade()));
+		map.put("hygienegrade", hygiene.getHygienegrade());
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
 		List<Hygiene> List=hygieneService.find(map);
