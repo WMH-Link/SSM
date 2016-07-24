@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 用于报修操作的servlet
+ * 用于报修管理的servlet
  * @author 廖明兴
  *
  */
