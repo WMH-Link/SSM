@@ -19,25 +19,11 @@
 	src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript">
 	var url;
-
-	$(function() {
-		$("#assignMan").combobox({
-			onSelect : function(record) {
-				if (record.trueName != '') {
-					$("#assignTime").val(getCurrentDateTime());
-				} else {
-					$("#assignTime").val("");
-				}
-			}
-		});
-	});
-
+	
 	function searchSaleChance() {
 		$("#dg").datagrid('load', {
-			"customerName" : $("#s_customerName").val(),
-			"overView" : $("#s_overView").val(),
-			"createMan" : $("#s_createMan").val(),
-			"state" : $("#s_state").combobox("getValue")
+			"repairid" : $("#s_repairid").val(),
+			"repairtime" : $("#s_repairtime").val(),
 		});
 	}
 
@@ -57,8 +43,8 @@
 		var row = selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle", "编辑销售机会信息");
 		$("#fm").form("load", row);
-		url = "${pageContext.request.contextPath}/saleChance/save.do?id="
-				+ row.id;
+		url = "${pageContext.request.contextPath}/saleChance/save.do?repairid="
+				+ row.repairid;
 	}
 
 	function saveSaleChance() {
@@ -83,63 +69,19 @@
 	}
 
 	function resetValue() {
-		$("#customerName").val("");
-		$("#chanceSource").val("");
-		$("#linkMan").val("");
-		$("#linkPhone").val("");
-		$("#cgjl").numberbox('setValue', "");
-		$("#overView").val("");
-		$("#description").val("");
-		$("#createMan").val("");
-		$("#createTime").val("");
-		$("#assignMan").combobox("setValue", "");
-		$("#assignTime").val("");
+		$("#repairid").val("");
+		$("#repairfloor").val("");
+		$("#repairdormitoryno").val("");
+		$("#thingid").val("");
+		$("#repaircontent").val("");
+		$("#repairtime").val("");
+		$("#repairdotime").val("");
+		$("#remarks").val("");
 	}
 
 	function closeSaleChanceDialog() {
 		$("#dlg").dialog("close");
 		resetValue();
-	}
-
-	function deleteSaleChance() {
-		var selectedRows = $("#dg").datagrid("getSelections");
-		if (selectedRows.length == 0) {
-			$.messager.alert("系统提示", "请选择要删除的数据！");
-			return;
-		}
-		var strIds = [];
-		for (var i = 0; i < selectedRows.length; i++) {
-			strIds.push(selectedRows[i].id);
-		}
-		var ids = strIds.join(",");
-		$.messager
-				.confirm(
-						"系统提示",
-						"您确定要删除这<font color=red>" + selectedRows.length
-								+ "</font>条数据吗？",
-						function(r) {
-							if (r) {
-								$
-										.post(
-												"${pageContext.request.contextPath}/saleChance/delete.do",
-												{
-													ids : ids
-												},
-												function(result) {
-													if (result.success) {
-														$.messager.alert(
-																"系统提示",
-																"数据已成功删除！");
-														$("#dg").datagrid(
-																"reload");
-													} else {
-														$.messager
-																.alert("系统提示",
-																		"数据删除失败，请联系系统管理员！");
-													}
-												}, "json");
-							}
-						});
 	}
 </script>
 <title>Insert title here</title>
@@ -147,19 +89,19 @@
 <body style="margin: 1px">
 	<table id="dg" title="报修管理" class="easyui-datagrid" fitColumns="true"
 		pagination="true" rownumbers="true"
-		url="${pageContext.request.contextPath}/saleChance/list.do" fit="true"
+		url="${pageContext.request.contextPath}/Repair/list.do" fit="true"
 		toolbar="#tb">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true" align="center"></th>
-				<th field="id" width="10%" align="center">报修编号</th>
-				<th field="customerName" width="10%" align="center">楼号</th>
-				<th field="overView" width="10%" align="center">宿舍号</th>
-				<th field="linkMan" width="10%" align="center">物品编号</th>
-				<th field="linkPhone" width="40%" align="center">报修原因</th>
-				<th field="createMan" width="10%" align="center">报修时间</th>
-				<th field="createTime" width="10%" align="center">解决时间</th>
-				<th field="assignMan" width="10%" align="center" hidden="true">描述</th>
+				<th field="repairid" width="10%" align="center">报修编号</th>
+				<th field="repairfloor" width="10%" align="center">楼号</th>
+				<th field="repairdormitoryno" width="10%" align="center">宿舍号</th>
+				<th field="thingid" width="10%" align="center">物品编号</th>
+				<th field="repaircontent" width="30%" align="center">报修原因</th>
+				<th field="repairtime" width="10%" align="center">报修时间</th>
+				<th field="repairdotime" width="10%" align="center">解决时间</th>
+				<th field="remarks" width="10%" align="center" hidden="true">描述</th>
 			</tr>
 		</thead>
 	</table>
@@ -169,10 +111,10 @@
 				class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a>
 		</div>
 		<div>
-			&nbsp;报修编号：&nbsp;<input type="text" id="s_customerName" size="20"
+			&nbsp;报修编号：&nbsp;<input type="text" id="s_repairid" size="20"
 				onkeydown="if(event.keyCode==13) searchSaleChance()" />
-			&nbsp;报修时间：&nbsp;<input type="datetime-local" id="s_createMan" size="20"
-				onkeydown="if(event.keyCode==13) searchSaleChance()" /> <a
+			&nbsp;报修时间：&nbsp;<input type="datetime-local" id="s_repairtime"
+				size="20" onkeydown="if(event.keyCode==13) searchSaleChance()" /> <a
 				href="javascript:searchSaleChance()" class="easyui-linkbutton"
 				iconCls="icon-search" plain="true">搜索</a>
 		</div>
@@ -194,16 +136,16 @@
 				<tr>
 					<td>楼号：</td>
 					<td><input type="text" id="repairfloor" name="repairfloor"
-						required="required" /></td>
+						required="required" /><font color="red">*</font></td>
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 					<td>宿舍号：</td>
 					<td><input type="text" id="repairdormitoryno"
-						name="repairdormitoryno" required="required" /></td>
+						name="repairdormitoryno" required="required" /><font color="red">*</font></td>
 				</tr>
 				<tr>
 					<td>物品编号：</td>
 					<td colspan="4"><input type="text" id="thingid" name="thingid"
-						style="width: 420px" /></td>
+						style="width: 420px" /><font color="red">*</font></td>
 				</tr>
 				<tr>
 					<td>报修原因：</td>

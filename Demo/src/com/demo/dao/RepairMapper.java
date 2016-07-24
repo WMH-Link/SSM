@@ -20,6 +20,13 @@ public interface RepairMapper {
 	public List<Repair> find(Map<String,Object> map);
 	
 	/**
+	 * 获取总记录数
+	 * @param map
+	 * @return
+	 */
+	public Long getTotal(Map<String,Object> map);
+	
+	/**
 	 * 添加报修管理
 	 * @param saleChance
 	 * @return

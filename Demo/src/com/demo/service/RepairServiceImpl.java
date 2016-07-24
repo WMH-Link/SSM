@@ -24,6 +24,11 @@ public class RepairServiceImpl implements  IRepairService{
 	public List<Repair> find(Map<String, Object> map) {
 		return repairMapper.find(map);
 	}
+	
+	@Override
+	public Long getTotal(Map<String, Object> map) {
+		return repairMapper.getTotal(map);
+	}
 
 	@Override
 	public int add(Repair saleChance) {
