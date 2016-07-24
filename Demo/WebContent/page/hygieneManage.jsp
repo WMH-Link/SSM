@@ -3,11 +3,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.5/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.5/themes/icon.css">
-<script type="text/javascript" src="jquery-easyui-1.4.5/jquery.min.js"></script>
-<script type="text/javascript" src="jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/jquery-easyui-1.4.5/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/jquery-easyui-1.4.5/themes/icon.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/jquery-easyui-1.4.5/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript">
  
  var url;
@@ -24,12 +24,11 @@
 	}); 
  }); */
  
- function searchSaleChance(){
+ function searchHygiene(){
 	 $("#dg").datagrid('load',{
-		"customerName":$("#s_customerName").val(), 
-		"overView":$("#s_overView").val(), 
-		"createMan":$("#s_createMan").val(), 
-		"state":$("#s_state").combobox("getValue")
+		"hygienefloor":$("#s_hygienefloor").val(), 
+		"hygienedormitoryno":$("#s_hygienedormitoryno").val(),  
+		"hygienegrade":$("#s_hygienegrade").combobox("getValue")
 	 });
  }
  
@@ -42,10 +41,9 @@
  }
  
  function openHygieneAddDialog(){
-	 $("#dlg").dialog("open").dialog("setTitle","添加销售机会信息");
-	 $("#createMan").val('${currentUser.trueName}');
-	 $("#createTime").val(getCurrentDateTime());
-	 url="${pageContext.request.contextPath}/saleChance/save.do";
+	 $("#dlg").dialog("open").dialog("setTitle","添加");
+	 //$("#hygieneTime").val(getCurrentDateTime());
+	 url="${pageContext.request.contextPath}/hygieneController/save.do";
  }
  
  function openHygieneModifyDialog(){
@@ -55,9 +53,9 @@
 		 return;
 	 }
 	 var row=selectedRows[0];
-	 $("#dlg").dialog("open").dialog("setTitle","编辑销售机会信息");
+	 $("#dlg").dialog("open").dialog("setTitle","编辑");
 	 $("#fm").form("load",row);
-	 url="${pageContext.request.contextPath}/saleChance/save.do?id="+row.id;
+	 url="${pageContext.request.contextPath}/hygieneController/save.do?id="+row.id;
  }
  
  function saveHygiene(){
@@ -82,17 +80,12 @@
  }
  
  function resetValue(){
-	 $("#customerName").val("");
-	 $("#chanceSource").val("");
-	 $("#linkMan").val("");
-	 $("#linkPhone").val("");
-	 $("#cgjl").numberbox('setValue',"");
-	 $("#overView").val("");
-	 $("#description").val("");
-	 $("#createMan").val("");
-	 $("#createTime").val("");
-	 $("#assignMan").combobox("setValue","");
-	 $("#assignTime").val("");
+	 $("#hygienefloor").val("");
+	 $("#hygienedormitoryno").val("");
+	 $("#hygienecontent").val("");
+	 $("#hygienegrade").val("");
+	 $("#hygienetime").combobox("setValue","");
+	 $("#remarks").val("");
  }
  
  function closeHygieneDialog(){
@@ -113,7 +106,7 @@
 	 var ids=strIds.join(",");
 	 $.messager.confirm("系统提示","您确定要删除这<font color=red>"+selectedRows.length+"</font>条数据吗？",function(r){
 		if(r){
-			$.post("${pageContext.request.contextPath}/saleChance/delete.do",{ids:ids},function(result){
+			$.post("${pageContext.request.contextPath}/hygieneController/delete.do",{ids:ids},function(result){
 				if(result.success){
 					 $.messager.alert("系统提示","数据已成功删除！");
 					 $("#dg").datagrid("reload");
@@ -131,17 +124,17 @@
 <body style="margin: 1px">
  <table id="dg" title="卫生记录管理" class="easyui-datagrid"
    fitColumns="true" pagination="true" rownumbers="true"
-   url="hygieneController/list.do" fit="true" toolbar="#tb">
+   url="${pageContext.request.contextPath}/hygieneController/list.do" fit="true" toolbar="#tb">
    <thead>
    	<tr>
    		<th field="cb" checkbox="true" align="center"></th>
    		<th field="hygieneid" width="50" align="center" hidden="true">ID</th>
    		<th field="hygienefloor" width="200" align="center">楼号</th>
-   		<th field="hygienedormitoryno" width="200" align="center" hidden="true">宿舍号</th>
+   		<th field="hygienedormitoryno" width="200" align="center">宿舍号</th>
    		<th field="hygienecontent" width="400" align="center">卫生状况</th>
    		<th field="hygienegrade" width="100" align="center">卫生等级</th>
    		<th field="hygienetime" width="200" align="center">卫生检查时间</th>
-   		<th field="remarks" width="200" align="center" hidden="true">描述</th>
+   		<th field="remarks" width="200" align="center" >描述</th>
    	</tr>
    </thead>
  </table>
@@ -168,50 +161,47 @@
  <div id="dlg" class="easyui-dialog" style="width:700px;height:450px;padding: 10px 20px"
    closed="true" buttons="#dlg-buttons">
    
-   <form id="fm" method="post">
+   <form id="fm" method="post" accept-charset="UTF-8">
    	<table cellspacing="8px">
    		<tr>
-   			<td>客户名称：</td>
-   			<td><input type="text" id="customerName" name="customerName" class="easyui-validatebox" required="true"/>&nbsp;<font color="red">*</font></td>
-   			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   			<td>机会来源</td>
-   			<td><input type="text" id="chanceSource" name="chanceSource" /></td>
+   			<td>楼号：</td>
+   			<td><input type="text" id="hygienefloor" name="hygienefloor" class="easyui-validatebox" required="true"/>&nbsp;<font color="red">*</font></td>
    		</tr>
    		<tr>
-   			<td>联系人：</td>
-   			<td><input type="text" id="linkMan" name="linkMan" /></td>
-   			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   			<td>联系电话：</td>
-   			<td><input type="text" id="linkPhone" name="linkPhone" /></td>
+   			<td>寝室号：</td>
+   			<td><input type="text" id="hygienedormitoryno" name="hygienedormitoryno" class="easyui-validatebox" required="true"/>&nbsp;<font color="red">*</font></td>
    		</tr>
    		<tr>
-   			<td>成功几率(%)：</td>
-   			<td><input type="text" id="cgjl" name="cgjl" class="easyui-numberbox" data-options="min:0,max:100" required="true"/>&nbsp;<font color="red">*</font></td>
-   			<td colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   		</tr>
-   		<tr>
-   			<td>概要：</td>
-   			<td colspan="4"><input type="text" id="overView" name="overView" style="width: 420px"/></td>
-   		</tr>
-   		<tr>
-   			<td>机会描述：</td>
-   			<td colspan="4">
-   				<textarea rows="5" cols="50" id="description" name="description"></textarea>
+   			<td>卫生状况：</td>  			
+   			<td colspan="2">
+   				<textarea rows="2" cols="50" id="hygienecontent" name="hygienecontent" class="easyui-validatebox" required="true"></textarea>&nbsp;<font color="red">*</font>
    			</td>
    		</tr>
    		<tr>
-   			<td>创建人：</td>
-   			<td><input type="text" readonly="readonly" id="createMan" name="createMan" class="easyui-validatebox" required="true"/>&nbsp;<font color="red">*</font></td>
-   			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   			<td>创建时间：</td>
-   			<td><input type="text" id="createTime" name="createTime" readonly="readonly"/>&nbsp;<font color="red">*</font></td>
+   			<td>卫生等级：</td>
+   			<td>
+   			<select class="easyui-combobox" id="hygienegrade" name="hygienegrade" editable="false" panelHeight="auto" >
+ 								<option value="">请选择</option>	
+ 								<option value="0">0</option>
+ 								<option value="1">1</option>
+ 								<option value="2">2</option>
+ 								<option value="3">3</option>					
+ 		                    </select>
+			</td>
+   		</tr>
+   		<!-- <tr>
+   			<td>卫生等级：</td>
+   			<td><input type="text" id="hygienegrade" name="hygienegrade" class="easyui-validatebox" required="true"/>&nbsp;<font color="red">*</font></td>
+   		</tr> -->
+   		<tr>
+   			<td>检查时间：</td>
+   			<td><input type="text" id="hygienetime" name="hygienetime" class="easyui-validatebox" required="true"/>&nbsp;<font color="red">*</font></td>
    		</tr>
    		<tr>
-   			<td>指派给：</td>
-   			<td><input class="easyui-combobox" id="assignMan" name="assignMan" data-options="panelHeight:'auto',editable:false,valueField:'trueName',textField:'trueName',url:'${pageContext.request.contextPath}/user/customerManagerComboList.do'"/></td>
-   			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-   			<td>指派时间：</td>
-   			<td><input type="text" id="assignTime" name="assignTime" readonly="readonly"/></td>
+   			<td>描述：</td>
+   			<td colspan="2">
+   				<textarea rows="3" cols="50" id="remarks" name="remarks"></textarea>
+   			</td>
    		</tr>
    	</table>
    </form>
