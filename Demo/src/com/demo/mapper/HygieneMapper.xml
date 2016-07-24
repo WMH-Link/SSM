@@ -31,7 +31,7 @@
 				<if test="hygienedormitoryno!=null and hygienedormitoryno!='' ">
 					and hygieneDormitoryNo like #{hygienedormitoryno}
 				</if>
-				<if test="hygienegrade!=null ">
+				<if test="hygienegrade!=null and hygienegrade!='' ">
 					and hygieneGrade = #{hygienegrade}
 				</if>
 		</where>

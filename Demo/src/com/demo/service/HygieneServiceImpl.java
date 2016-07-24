@@ -16,7 +16,7 @@ import com.demo.entity.Hygiene;
  * @author YJC
  */
 @Service("hygieneService")
-public class HygieneService implements IHygieneService{
+public class HygieneServiceImpl implements IHygieneService{
 	
 	@Resource
 	private HygieneMapper dao;
