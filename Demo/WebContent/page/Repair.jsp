@@ -41,14 +41,6 @@
 		});
 	}
 
-	function formatState(val, row) {
-		if (val == 1) {
-			return "已分配";
-		} else {
-			return "未分配";
-		}
-	}
-
 	function openSaleChanceAddDialog() {
 		$("#dlg").dialog("open").dialog("setTitle", "添加销售机会信息");
 		$("#createMan").val('${currentUser.trueName}');
@@ -179,9 +171,7 @@
 		<div>
 			&nbsp;报修编号：&nbsp;<input type="text" id="s_customerName" size="20"
 				onkeydown="if(event.keyCode==13) searchSaleChance()" />
-			&nbsp;报修人：&nbsp;<input type="text" id="s_createMan" size="20"
-				onkeydown="if(event.keyCode==13) searchSaleChance()" />
-			&nbsp;报修时间：&nbsp;<input type="date" id="s_createMan" size="20"
+			&nbsp;报修时间：&nbsp;<input type="datetime-local" id="s_createMan" size="20"
 				onkeydown="if(event.keyCode==13) searchSaleChance()" /> <a
 				href="javascript:searchSaleChance()" class="easyui-linkbutton"
 				iconCls="icon-search" plain="true">搜索</a>
@@ -218,7 +208,7 @@
 				<tr>
 					<td>报修原因：</td>
 					<td><input type="text" id="repaircontent" name="repaircontent"
-						readonly="readonly" class="easyui-validatebox" required="required"/>&nbsp;<font
+						readonly="readonly" class="easyui-validatebox" required="required" />&nbsp;<font
 						color="red">*</font></td>
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 					<td>报修时间：</td>

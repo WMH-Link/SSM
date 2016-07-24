@@ -1,19 +1,18 @@
 package com.demo.entity;
 
 /**
- * 分页实体类
- * @YJC
+ * ��ҳModel��
+ * @author 
  *
  */
-public class Page {
+public class PageBean {
 
-	private int page; // 第几页
-	private int pageSize; // 每页记录数
-	@SuppressWarnings("unused")
-	private int start;  // 起始页
+	private int page; // �ڼ�ҳ
+	private int pageSize; // ÿҳ��¼��
+	//private int start;  // ��ʼҳ
 	
 	
-	public Page(int page, int pageSize) {
+	public PageBean(int page, int pageSize) {
 		super();
 		this.page = page;
 		this.pageSize = pageSize;
