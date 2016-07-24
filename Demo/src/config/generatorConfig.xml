@@ -63,7 +63,134 @@
               
             <!-- 指定列的java数据类型 -->
             <!-- <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> -->             
-        </table>  
+        </table> 
+        
+        <table schema="demo" tableName="admin"  
+            domainObjectName="Admin" enableCountByExample="false"  
+            enableDeleteByExample="false" enableSelectByExample="false"  
+            enableUpdateByExample="false">  
+            <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample   
+                是否生成 example类   -->  
+              
+            <!-- 忽略列，不生成bean 字段 -->  
+            <!-- <ignoreColumn column="FRED" /> --> 
+              
+            <!-- 指定列的java数据类型 -->
+            <!-- <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> -->             
+        </table> 
+        
+        <table schema="demo" tableName="check"  
+            domainObjectName="Check" enableCountByExample="false"  
+            enableDeleteByExample="false" enableSelectByExample="false"  
+            enableUpdateByExample="false">  
+            <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample   
+                是否生成 example类   -->  
+              
+            <!-- 忽略列，不生成bean 字段 -->  
+            <!-- <ignoreColumn column="FRED" /> --> 
+              
+            <!-- 指定列的java数据类型 -->
+            <!-- <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> -->             
+        </table>
+        
+        <table schema="demo" tableName="dormitory"  
+            domainObjectName="Dormitory" enableCountByExample="false"  
+            enableDeleteByExample="false" enableSelectByExample="false"  
+            enableUpdateByExample="false">  
+            <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample   
+                是否生成 example类   -->  
+              
+            <!-- 忽略列，不生成bean 字段 -->  
+            <!-- <ignoreColumn column="FRED" /> --> 
+              
+            <!-- 指定列的java数据类型 -->
+            <!-- <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> -->             
+        </table>
+        
+        <table schema="demo" tableName="feedback"  
+            domainObjectName="Feedback" enableCountByExample="false"  
+            enableDeleteByExample="false" enableSelectByExample="false"  
+            enableUpdateByExample="false">  
+            <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample   
+                是否生成 example类   -->  
+              
+            <!-- 忽略列，不生成bean 字段 -->  
+            <!-- <ignoreColumn column="FRED" /> --> 
+              
+            <!-- 指定列的java数据类型 -->
+            <!-- <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> -->             
+        </table>
+        
+        <table schema="demo" tableName="hygiene"  
+            domainObjectName="Hygiene" enableCountByExample="false"  
+            enableDeleteByExample="false" enableSelectByExample="false"  
+            enableUpdateByExample="false">  
+            <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample   
+                是否生成 example类   -->  
+              
+            <!-- 忽略列，不生成bean 字段 -->  
+            <!-- <ignoreColumn column="FRED" /> --> 
+              
+            <!-- 指定列的java数据类型 -->
+            <!-- <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> -->             
+        </table>
+        
+        <table schema="demo" tableName="notice"  
+            domainObjectName="Notice" enableCountByExample="false"  
+            enableDeleteByExample="false" enableSelectByExample="false"  
+            enableUpdateByExample="false">  
+            <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample   
+                是否生成 example类   -->  
+              
+            <!-- 忽略列，不生成bean 字段 -->  
+            <!-- <ignoreColumn column="FRED" /> --> 
+              
+            <!-- 指定列的java数据类型 -->
+            <!-- <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> -->             
+        </table>
+        
+        <table schema="demo" tableName="repair"  
+            domainObjectName="Repair" enableCountByExample="false"  
+            enableDeleteByExample="false" enableSelectByExample="false"  
+            enableUpdateByExample="false">  
+            <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample   
+                是否生成 example类   -->  
+              
+            <!-- 忽略列，不生成bean 字段 -->  
+            <!-- <ignoreColumn column="FRED" /> --> 
+              
+            <!-- 指定列的java数据类型 -->
+            <!-- <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> -->             
+        </table>
+        
+        <table schema="demo" tableName="student"  
+            domainObjectName="Student" enableCountByExample="false"  
+            enableDeleteByExample="false" enableSelectByExample="false"  
+            enableUpdateByExample="false">  
+            <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample   
+                是否生成 example类   -->  
+              
+            <!-- 忽略列，不生成bean 字段 -->  
+            <!-- <ignoreColumn column="FRED" /> --> 
+              
+            <!-- 指定列的java数据类型 -->
+            <!-- <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> -->             
+        </table>
+        
+        <table schema="demo" tableName="thing"  
+            domainObjectName="Thing" enableCountByExample="false"  
+            enableDeleteByExample="false" enableSelectByExample="false"  
+            enableUpdateByExample="false">  
+            <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample   
+                是否生成 example类   -->  
+              
+            <!-- 忽略列，不生成bean 字段 -->  
+            <!-- <ignoreColumn column="FRED" /> --> 
+              
+            <!-- 指定列的java数据类型 -->
+            <!-- <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> -->             
+        </table>
+        
   
     </context>  
 </generatorConfiguration>  
