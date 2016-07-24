@@ -182,8 +182,8 @@
 			&nbsp;报修人：&nbsp;<input type="text" id="s_createMan" size="20"
 				onkeydown="if(event.keyCode==13) searchSaleChance()" />
 			&nbsp;报修时间：&nbsp;<input type="date" id="s_createMan" size="20"
-				onkeydown="if(event.keyCode==13) searchSaleChance()" />
-			<a href="javascript:searchSaleChance()" class="easyui-linkbutton"
+				onkeydown="if(event.keyCode==13) searchSaleChance()" /> <a
+				href="javascript:searchSaleChance()" class="easyui-linkbutton"
 				iconCls="icon-search" plain="true">搜索</a>
 		</div>
 	</div>
@@ -197,18 +197,18 @@
 				<tr>
 					<td>报修编号：</td>
 					<td><input type="text" id="repairid" name="repairid"
-						class="easyui-validatebox" required="true" />&nbsp;<font
+						class="easyui-validatebox" required="required" />&nbsp;<font
 						color="red">*</font></td>
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				</tr>
 				<tr>
 					<td>楼号：</td>
-					<td><input type="text" id="repairfloor" 
-						name="repairfloor"  required="true" /></td>
+					<td><input type="text" id="repairfloor" name="repairfloor"
+						required="required" /></td>
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 					<td>宿舍号：</td>
 					<td><input type="text" id="repairdormitoryno"
-						name="repairdormitoryno"  required="true" /></td>
+						name="repairdormitoryno" required="required" /></td>
 				</tr>
 				<tr>
 					<td>物品编号：</td>
@@ -218,12 +218,12 @@
 				<tr>
 					<td>报修原因：</td>
 					<td><input type="text" id="repaircontent" name="repaircontent"
-						readonly="readonly" class="easyui-validatebox" required="true" />&nbsp;<font
+						readonly="readonly" class="easyui-validatebox" required="required"/>&nbsp;<font
 						color="red">*</font></td>
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 					<td>报修时间：</td>
-					<td><input type="text" id="repairtime" name="repairtime" required="true"
-						readonly="readonly" />&nbsp;<font color="red">*</font></td>
+					<td><input type="text" id="repairtime" name="repairtime"
+						required="required" readonly="readonly" />&nbsp;<font color="red">*</font></td>
 					<td>解决时间：</td>
 					<td><input type="text" id="repairdotime" name="repairdotime"
 						readonly="readonly" />&nbsp;<font color="red">*</font></td>
