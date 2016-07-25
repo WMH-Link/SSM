@@ -9,7 +9,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript">
- 
+  
  var url;
  
 /*  $(function(){
