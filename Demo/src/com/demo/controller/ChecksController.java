@@ -15,9 +15,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.demo.entity.Hygiene;
+import com.demo.entity.Checks;
 import com.demo.entity.Page;
-import com.demo.service.IHygieneService;
+import com.demo.service.IChecksService;
 import com.demo.util.DateJsonValueProcessor;
 import com.demo.util.IDFactory;
 import com.demo.util.ResponseUtil;
@@ -25,35 +25,35 @@ import com.demo.util.StringUtil;
 
 
 /**
- * 卫生记录Controller层
+ * 考勤记录Controller层
  * @author YJC
  * 
  */
 @Controller
-@RequestMapping("/hygieneController")
-public class HygieneController {
+@RequestMapping("/checksController")
+public class ChecksController {
 	@Resource
-	private IHygieneService hygieneService;
+	private IChecksService checksService;
 	/**
 	 * 分页条件查询
 	 * @param page
 	 * @param rows
-	 * @param hygiene
+	 * @param check
 	 * @param response
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping("/list")
-	public String list(@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows,Hygiene hygiene,HttpServletResponse response)throws Exception{
+	public String list(@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows,Checks checks,HttpServletResponse response)throws Exception{
 		Page pageBean=new Page(Integer.parseInt(page),Integer.parseInt(rows));
 		Map<String,Object> map=new HashMap<String,Object>();
-		map.put("hygienefloor", StringUtil.formatLike(hygiene.getHygienefloor()));
-		map.put("hygienedormitoryno", StringUtil.formatLike(hygiene.getHygienedormitoryno()));
-		map.put("hygienegrade", hygiene.getHygienegrade());
+		map.put("checksfloor", StringUtil.formatLike(checks.getChecksfloor()));
+		map.put("checksdormitoryno", StringUtil.formatLike(checks.getChecksdormitoryno()));
+		map.put("checkstime", checks.getCheckstime());
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
-		List<Hygiene> List=hygieneService.find(map);
-		Long total=hygieneService.getTotal(map);
+		List<Checks> List=checksService.find(map);
+		Long total=checksService.getTotal(map);
 		JSONObject result=new JSONObject();
 		JsonConfig jsonConfig=new JsonConfig();
 		jsonConfig.registerJsonValueProcessor(java.util.Date.class, new DateJsonValueProcessor("yyyy-MM-dd HH:mm"));
@@ -72,14 +72,14 @@ public class HygieneController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/save")
-	public String save(Hygiene hygiene,HttpServletResponse response)throws Exception{
+	public String save(Checks checks,HttpServletResponse response)throws Exception{
 		int resultTotal=0; // 操作的记录条数
 	
-		if(hygiene.getHygieneid()==null||hygiene.getHygieneid().equals("")){
-			hygiene.setHygieneid(IDFactory.createId());
-			resultTotal=hygieneService.add(hygiene);
+		if(checks.getChecksid()==null||checks.getChecksid().equals("")){
+			checks.setChecksid(IDFactory.createId());
+			resultTotal=checksService.add(checks);
 		}else{
-			resultTotal=hygieneService.update(hygiene);
+			resultTotal=checksService.update(checks);
 		}
 		JSONObject result=new JSONObject();
 		if(resultTotal>0){
@@ -102,7 +102,7 @@ public class HygieneController {
 	public String delete(@RequestParam(value="ids")String ids,HttpServletResponse response)throws Exception{
 		String []idsStr=ids.split(",");
 		for(int i=0;i<idsStr.length;i++){
-			hygieneService.delete(idsStr[i]);
+			checksService.delete(idsStr[i]);
 		}
 		JSONObject result=new JSONObject();
 		result.put("success", true);
@@ -119,10 +119,10 @@ public class HygieneController {
 	 */
 	@RequestMapping("/findById")
 	public String findById(@RequestParam(value="id")String id,HttpServletResponse response)throws Exception{
-		Hygiene hygiene=hygieneService.findById(id);
+		Checks checks=checksService.findById(id);
 		JsonConfig jsonConfig=new JsonConfig();
 		jsonConfig.registerJsonValueProcessor(java.util.Date.class, new DateJsonValueProcessor("yyyy-MM-dd HH:mm"));
-		JSONObject jsonObject=JSONObject.fromObject(hygiene, jsonConfig);
+		JSONObject jsonObject=JSONObject.fromObject(checks, jsonConfig);
 		ResponseUtil.write(response, jsonObject);
 		return null;
 	}
