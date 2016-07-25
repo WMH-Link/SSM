@@ -31,8 +31,13 @@ public class RepairServiceImpl implements  IRepairService{
 	}
 
 	@Override
-	public int add(Repair saleChance) {
-		return repairMapper.add(saleChance);
+	public int add(Repair repair) {
+		return repairMapper.add(repair);
+	}
+	
+	@Override
+	public int update(Repair repair) {
+		return repairMapper.update(repair);
 	}
 
 	@Override

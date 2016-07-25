@@ -26,12 +26,18 @@ public interface IRepairService {
 	public Long getTotal(Map<String,Object> map);
 	
 	/**
-	 * 添加报修管理
+	 * 添加报修记录
 	 * @param saleChance
 	 * @return
 	 */
 	public int add(Repair repair);
 	
+	/**
+	 * 修改报修记录
+	 * @param repair
+	 * @return
+	 */
+	public int update(Repair repair);
 	/**
 	 * 根据id查找实体
 	 * @param id

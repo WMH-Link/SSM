@@ -24,6 +24,7 @@ import com.demo.service.IRepairService;
 import com.demo.controller.DateJsonValueProcessor;
 import com.demo.entity.Page;
 import com.demo.entity.Repair;
+import com.demo.util.IDFactory;
 import com.demo.util.ResponseUtil;
 import com.demo.util.StringUtil;
 
@@ -69,6 +70,7 @@ public class RepairController {
 		map.put("repairdormitoryno",
 				StringUtil.formatLike(s_repair.getRepairdormitoryno()));
 		map.put("thingid", s_repair.getThingid());
+		map.put("thingname", s_repair.getThingname());
 		map.put("repaircontent", s_repair.getRepaircontent());
 		map.put("repairtime", s_repair.getRepairtime());
 		map.put("repairdotime", s_repair.getRepairdotime());
@@ -98,7 +100,25 @@ public class RepairController {
 	@RequestMapping("/save")
 	public String save(Repair repair, HttpServletResponse response)
 			throws Exception {
-
+		int resultTotal = 0; // 操作的记录条数
+		
+		if (repair.getRepairid() == null || repair.getRepairid().equals("")) {
+			repair.setRepairid(IDFactory.createId());
+			resultTotal=repairService.add(repair);
+		} else{
+			String str = repair.getRepairid();
+			String arr[] = str.split(",");
+			repair.setRepairid(arr[0]);
+			resultTotal = repairService.update(repair);
+		}
+		
+		JSONObject result = new JSONObject();
+		if (resultTotal > 0) {
+			result.put("success", true);
+		} else {
+			result.put("success", false);
+		}
+		ResponseUtil.write(response, result);
 		return null;
 	}
 
