@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.demo.service.IRepairService;
 import com.demo.controller.DateJsonValueProcessor;
-import com.demo.entity.PageBean;
+import com.demo.entity.Page;
 import com.demo.entity.Repair;
 import com.demo.util.ResponseUtil;
 import com.demo.util.StringUtil;
@@ -62,8 +62,7 @@ public class RepairController {
 			@RequestParam(value = "page", required = false) String page,
 			@RequestParam(value = "rows", required = false) String rows,
 			Repair s_repair, HttpServletResponse response) throws Exception {
-		PageBean pageBean = PageBean(Integer.parseInt(page),
-				Integer.parseInt(rows));
+		Page pageBean=new Page(Integer.parseInt(page),Integer.parseInt(rows));
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("repairid", StringUtil.formatLike(s_repair.getRepairid()));
 		map.put("repairfloor", StringUtil.formatLike(s_repair.getRepairfloor()));
@@ -85,11 +84,6 @@ public class RepairController {
 		result.put("rows", jsonArray);
 		result.put("total", total);
 		ResponseUtil.write(response, result);
-		return null;
-	}
-
-	private PageBean PageBean(int parseInt, int parseInt2) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
