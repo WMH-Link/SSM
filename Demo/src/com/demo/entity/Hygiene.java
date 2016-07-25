@@ -2,7 +2,7 @@ package com.demo.entity;
 
 /**
  * 卫生记录实体
- *
+ * 
  * @YJC
  */
 public class Hygiene {

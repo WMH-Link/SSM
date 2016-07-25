@@ -8,7 +8,7 @@ import com.demo.entity.Hygiene;
 
 /**
  * 卫生记录Dao
- * 
+ *  
  * @YJC
  */
 public interface HygieneMapper {

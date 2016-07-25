@@ -8,7 +8,7 @@ import com.demo.entity.Checks;
 
 /**
  * 考勤记录Dao
- * 
+ *  
  * @YJC
  */
 public interface ChecksMapper {
