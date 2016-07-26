@@ -23,20 +23,20 @@
 	function searchSaleChance() {
 		$("#dg").datagrid('load', {
 			"noticeid" : $("#s_noticeid").val(),
-			"noticetype":$("#s_noticetype").combobox("getValue"),
+			"noticetype" : $("#s_noticetype").combobox("getValue"),
 			"noticetitle" : $("#s_noticetitle").val(),
 			"noticeauthor" : $("#s_noticeauthor").val(),
 		});
 	}
-	
+
 	//添加
 	function openSaleChanceAddDialog() {
-		$("#dlg").dialog("open").dialog("setTitle", "添加销售机会信息");
+		$("#dlg").dialog("open").dialog("setTitle", "添加公告信息");
 		$("#createMan").val('${currentUser.trueName}');
 		$("#createTime").val(getCurrentDateTime());
 		url = "${pageContext.request.contextPath}/Notice/save.do";
 	}
-	
+
 	//修改
 	function openSaleChanceModifyDialog() {
 		var selectedRows = $("#dg").datagrid("getSelections");
@@ -45,12 +45,12 @@
 			return;
 		}
 		var row = selectedRows[0];
-		$("#dlg").dialog("open").dialog("setTitle", "编辑销售机会信息");
+		$("#dlg").dialog("open").dialog("setTitle", "编辑公告信息");
 		$("#fm").form("load", row);
 		url = "${pageContext.request.contextPath}/Notice/save.do?noticeid="
 				+ row.noticeid;
 	}
-	
+
 	//保存
 	function saveSaleChance() {
 		$("#fm").form("submit", {
@@ -81,7 +81,7 @@
 		$("#noticecontent").val("");
 		$("#noticetime").val("");
 	}
-	
+
 	//关闭
 	function closeSaleChanceDialog() {
 		$("#dlg").dialog("close");
@@ -121,12 +121,12 @@
 			&nbsp;公告类型：&nbsp;
 			<!-- <input type="text" id="s_noticetype" size="20"
 				onkeydown="if(event.keyCode==13) searchSaleChance()" /> -->
-				<select class="easyui-combobox" id="s_noticetype" editable="false" panelHeight="auto" >
- 					<option value="">请选择...</option>	
- 					<option value="新闻">新闻</option>
- 					<option value="通知">通知</option>					
- 		         </select>
-			&nbsp;公告标题：&nbsp;<input type="text" id="s_noticetitle" size="20"
+			<select class="easyui-combobox" id="s_noticetype" editable="false"
+				panelHeight="auto">
+				<option value="">请选择...</option>
+				<option value="新闻">新闻</option>
+				<option value="通知">通知</option>
+			</select> &nbsp;公告标题：&nbsp;<input type="text" id="s_noticetitle" size="20"
 				onkeydown="if(event.keyCode==13) searchSaleChance()" />
 			&nbsp;发布人：&nbsp;<input type="text" id="s_noticeauthor" size="20"
 				onkeydown="if(event.keyCode==13) searchSaleChance()" /> <a
@@ -136,31 +136,38 @@
 	</div>
 
 	<div id="dlg" class="easyui-dialog"
-		style="width: 700px; height: 450px; padding: 10px 20px" closed="true"
+		style="width: 500px; height: 450px; padding: 10px 20px" closed="true"
 		buttons="#dlg-buttons">
 
 		<form id="fm" method="post">
 			<table cellspacing="8px">
 				<tr>
-					<td>公告类型</td>
+					<td>带<font color="red">*</font>为必填项
+					</td>
+				</tr>
+				<tr>
+					<td><font color="red">*</font>公告类型</td>
 					<td><input type="text" id="noticetype" name="noticetype" /></td>
 				</tr>
 				<tr>
-					<td>公告标题：</td>
+					<td><font color="red">*</font>公告标题</td>
 					<td><input type="text" id="noticetitle" name="noticetitle" /></td>
-					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td>发布人：</td>
+
+				</tr>
+				<tr>
+					<td><font color="red">*</font>发布人</td>
 					<td><input type="text" id="noticeauthor" name="noticeauthor" /></td>
 				</tr>
 				<tr>
-					<td>发布内容</td>
-					<td colspan="4"><textarea id="noticecontent" name="noticecontent"
-							style="width: 420px"></textarea></td>
+					<td><font color="red">*</font>发布内容</td>
+					<td colspan="4"><textarea id="noticecontent"
+							name="noticecontent" style="width: 300px; height: 100px;"></textarea></td>
 				</tr>
 				<tr>
-					<td><font color="red">*</font>发布时间：</td>
-					<td><input type="datetime"
-						id="noticetime" name="noticetime" class="easyui-validatebox" />&nbsp;</td>
+					<td><font color="red">*</font>发布时间</td>
+					<td><input type="datetime" id="noticetime" name="noticetime"
+						class="easyui-validatebox" />&nbsp;</td>
+					<td><font color="red">格式：2016-01-01 00:00</font></td>
 				</tr>
 			</table>
 		</form>

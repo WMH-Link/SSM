@@ -79,6 +79,12 @@
 		resetValue();
 	}
 </script>
+
+<style type="text/css">
+label {
+	width: 80px;
+}
+</style>
 <title>Insert title here</title>
 </head>
 <body style="margin: 1px">
@@ -119,48 +125,51 @@
 	</div>
 
 	<div id="dlg" class="easyui-dialog"
-		style="width: 700px; height: 450px; padding: 10px 20px" closed="true"
+		style="width: 380px; height: 400px; padding: 10px 20px" closed="true"
 		buttons="#dlg-buttons">
 
-		<form id="fm" method="post">
+		<form id="fm" method="post" style="text-align: left; font-size: 20px;">
 			<table cellspacing="8px">
 				<tr>
-					<td>报修编号：</td>
+					<td><label>报修编号</label></td>
 					<td><input type="text" id="repairid" name="repairid"
 						readonly="readonly" /></td>
-					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 				</tr>
 				<tr>
-					<td>楼&nbsp;&nbsp;号：</td>
+					<td><label>楼&nbsp;&nbsp;号</label></td>
 					<td><input type="text" id="repairfloor" name="repairfloor"
 						readonly="readonly" class="easyui-validatebox" /></td>
-					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td>宿舍号：</td>
+				</tr>
+				<tr>
+					<td><label>宿 舍 号</label></td>
 					<td colspan="4"><input type="text" id="repairdormitoryno"
 						name="repairdormitoryno" readonly="readonly" /></td>
 				</tr>
 				<tr>
-					<td>物品编号：</td>
+					<td><label>物品编号</label></td>
 					<td><input type="text" id="thingid" name="thingid"
 						readonly="readonly" /></td>
-					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td>物品名称：</td>
+				</tr>
+				<tr>
+					<td><label>物品名称</label></td>
 					<td><input type="text" id="thingname" name="thingname"
 						readonly="readonly" /></td>
 				</tr>
 				<tr>
-					<td>报修原因：</td>
+					<td><label>报修原因</label></td>
 					<td><input type="text" id="repaircontent" name="repaircontent"
-						required="required" /></td>
+						required="required" readonly="readonly" /></td>
 				</tr>
 				<tr>
-					<td>报修时间：</td>
+					<td><label>报修时间</label></td>
 					<td><input type="text" id="repairtime" name="repairtime"
 						readonly="readonly" /></td>
-					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td><font color="red">*</font>解决时间：</td>
-					<td><input type="datetime"
-						id="repairdotime" name="repairdotime" class="easyui-validatebox" />&nbsp;</td>
+				</tr>
+				<tr>
+					<td><label>解决时间</label></td>
+					<td><input type="datetime" id="repairdotime"
+						name="repairdotime" class="easyui-validatebox" />&nbsp;<font
+						color="red">*</font></td>
 				</tr>
 			</table>
 		</form>
