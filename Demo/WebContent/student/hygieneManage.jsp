@@ -24,11 +24,11 @@
 	}); 
  }); */
  
- function searchChecks(){
+ function searchHygiene(){
 	 $("#dg").datagrid('load',{
-		"checksfloor":$("#s_checksfloor").val(), 
-		"checksdormitoryno":$("#s_checksdormitoryno").val(),  
-		"checkstime":$("#s_checkstime").datebox("getValue")
+		"hygienefloor":$("#s_hygienefloor").val(), 
+		"hygienedormitoryno":$("#s_hygienedormitoryno").val(),  
+		"hygienegrade":$("#s_hygienegrade").combobox("getValue")
 	 });
  }
  
@@ -40,13 +40,13 @@
 	 }
  }
  
- function openChecksAddDialog(){
+ function openHygieneAddDialog(){
 	 $("#dlg").dialog("open").dialog("setTitle","添加");
 	 //$("#hygieneTime").val(getCurrentDateTime());
-	 url="${pageContext.request.contextPath}/checksController/save.do";
+	 url="${pageContext.request.contextPath}/hygieneController/save.do";
  }
  
- function openChecksModifyDialog(){
+ function openHygieneModifyDialog(){
 	 var selectedRows=$("#dg").datagrid("getSelections");
 	 if(selectedRows.length!=1){
 		 $.messager.alert("系统提示","请选择一条要编辑的数据！");
@@ -55,10 +55,10 @@
 	 var row=selectedRows[0];
 	 $("#dlg").dialog("open").dialog("setTitle","编辑");
 	 $("#fm").form("load",row);
-	 url="${pageContext.request.contextPath}/checksController/save.do?id="+row.id;
+	 url="${pageContext.request.contextPath}/hygieneController/save.do?id="+row.id;
  }
  
- function saveChecks(){
+ function saveHygiene(){
 	 $("#fm").form("submit",{
 		url:url,
 		onSubmit:function(){
@@ -80,20 +80,21 @@
  }
  
  function resetValue(){
-	 $("#checksid").val("");
-	 $("#checksfloor").val("");
-	 $("#checksdormitoryno").val("");
-	 $("#checkscontent").val("");
-	 $("#checkstime").datebobox("setValue","");
+	 $("#hygieneid").val("");
+	 $("#hygienefloor").val("");
+	 $("#hygienedormitoryno").val("");
+	 $("#hygienecontent").val("");
+	 $("#hygienegrade").val("");
+	 $("#hygienetime").combobox("setValue","");
 	 $("#remarks").val("");
  }
  
- function closeChecksDialog(){
+ function closeHygieneDialog(){
 	 $("#dlg").dialog("close");
 	 resetValue();
  }
  
- function deleteChecks(){
+ function deleteHygiene(){
 	 var selectedRows=$("#dg").datagrid("getSelections");
 	 if(selectedRows.length==0){
 		 $.messager.alert("系统提示","请选择要删除的数据！");
@@ -101,13 +102,13 @@
 	 }
 	 var ids = "";
 	 for(var i=0;i<selectedRows.length;i++){
-		 ids += selectedRows[i].checksid;
+		 ids += selectedRows[i].hygieneid;
 		 if(i<=selectedRows.length-1)
 		 	ids += ","
 	 }
 	 $.messager.confirm("系统提示","您确定要删除这<font color=red>"+selectedRows.length+"</font>条数据吗？",function(r){
 		if(r){
-			$.post("${pageContext.request.contextPath}/checksController/delete.do",{ids:ids},function(result){
+			$.post("${pageContext.request.contextPath}/hygieneController/delete.do",{ids:ids},function(result){
 				if(result.success){
 					 $.messager.alert("系统提示","数据已成功删除！");
 					 $("#dg").datagrid("reload");
@@ -123,32 +124,39 @@
 <title>Insert title here</title>
 </head>
 <body style="margin: 1px">
- <table id="dg" title="卫生记录管理" class="easyui-datagrid"
+ <table id="dg" class="easyui-datagrid"
    fitColumns="true" pagination="true" rownumbers="true"
-   url="${pageContext.request.contextPath}/checksController/list.do" fit="true" toolbar="#tb">
+   url="${pageContext.request.contextPath}/hygieneController/list.do" fit="true" toolbar="#tb">
    <thead>
    	<tr>
    		<th field="cb" checkbox="true" align="center"></th>
-   		<th field="checksid" width="50" align="center" hidden="true">ID</th>
-   		<th field="checksfloor" width="200" align="center">楼号</th>
-   		<th field="checksdormitoryno" width="200" align="center">宿舍号</th>
-   		<th field="checkscontent" width="400" align="center">考勤状况</th>
-   		<th field="checkstime" width="200" align="center">考勤时间</th>
+   		<th field="hygieneid" width="50" align="center" hidden="true">ID</th>
+   		<th field="hygienefloor" width="200" align="center">楼号</th>
+   		<th field="hygienedormitoryno" width="200" align="center">宿舍号</th>
+   		<th field="hygienecontent" width="400" align="center">卫生状况</th>
+   		<th field="hygienegrade" width="100" align="center">卫生等级</th>
+   		<th field="hygienetime" width="200" align="center">卫生检查时间</th>
    		<th field="remarks" width="200" align="center" >描述</th>
    	</tr>
    </thead>
  </table>
  <div id="tb">
+ 	<!-- <div>
+ 		<a href="javascript:openHygieneAddDialog()" class="easyui-linkbutton" iconCls="icon-add" plain="true">创建</a>
+ 		<a href="javascript:openHygieneModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a>
+ 		<a href="javascript:deleteHygiene()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
+ 	</div> -->
  	<div>
- 		<a href="javascript:openChecksAddDialog()" class="easyui-linkbutton" iconCls="icon-add" plain="true">创建</a>
- 		<a href="javascript:openChecksModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a>
- 		<a href="javascript:deleteChecks()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
- 	</div>
- 	<div>
- 		&nbsp;楼号：&nbsp;<input type="text" id="s_checksfloor" size="20" onkeydown="if(event.keyCode==13) searchChecks()"/>
- 		&nbsp;寝室号：&nbsp;<input type="text" id="s_checksdormitoryno" size="20" onkeydown="if(event.keyCode==13) searchChecks()"/>
- 		&nbsp;考勤时间：&nbsp;<input type="text" id="s_checkstime" class= "easyui-datebox" />
- 		<a href="javascript:searchChecks()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
+ 		&nbsp;楼号：&nbsp;<input type="text" id="s_hygienefloor" size="20" onkeydown="if(event.keyCode==13) searchHygiene()"/>
+ 		&nbsp;寝室号：&nbsp;<input type="text" id="s_hygienedormitoryno" size="20" onkeydown="if(event.keyCode==13) searchHygiene()"/>
+ 		&nbsp;卫生等级：&nbsp;<select class="easyui-combobox" id="s_hygienegrade" editable="false" panelHeight="auto" >
+ 								<option value="">请选择</option>	
+ 								<option value="0">0</option>
+ 								<option value="1">1</option>
+ 								<option value="2">2</option>
+ 								<option value="3">3</option>					
+ 		                    </select>
+ 		<a href="javascript:searchHygiene()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
  	</div>
  </div>
  
@@ -159,25 +167,37 @@
    	<table cellspacing="8px">
    		<tr hidden="true">
    			<td>ID：</td>
-   			<td><input type="text" id="checksid" name="checksid" /></td>
+   			<td><input type="text" id="hygieneid" name="hygieneid" /></td>
    		</tr>
    		<tr>
    			<td>楼号：</td>
-   			<td><input type="text" id="checksfloor" name="checksfloor" class="easyui-validatebox" required="true"/>&nbsp;<font color="red">*</font></td>
+   			<td><input type="text" id="hygienefloor" name="hygienefloor" class="easyui-validatebox" required="true"/>&nbsp;<font color="red">*</font></td>
    		</tr>
    		<tr>
    			<td>寝室号：</td>
-   			<td><input type="text" id="checksdormitoryno" name="checksdormitoryno" class="easyui-validatebox" required="true"/>&nbsp;<font color="red">*</font></td>
+   			<td><input type="text" id="hygienedormitoryno" name="hygienedormitoryno" class="easyui-validatebox" required="true"/>&nbsp;<font color="red">*</font></td>
    		</tr>
    		<tr>
-   			<td>考勤状况：</td>  			
+   			<td>卫生状况：</td>  			
    			<td colspan="2">
-   				<textarea rows="2" cols="50" id="checkscontent" name="checkscontent" class="easyui-validatebox" required="true"></textarea>&nbsp;<font color="red">*</font>
+   				<textarea rows="2" cols="50" id="hygienecontent" name="hygienecontent" class="easyui-validatebox" required="true"></textarea>&nbsp;<font color="red">*</font>
    			</td>
    		</tr>
    		<tr>
+   			<td>卫生等级：</td>
+   			<td>
+   			<select class="easyui-combobox" id="hygienegrade" name="hygienegrade" editable="false" panelHeight="auto" >
+ 								<option value="">请选择</option>	
+ 								<option value="0">0</option>
+ 								<option value="1">1</option>
+ 								<option value="2">2</option>
+ 								<option value="3">3</option>					
+ 		                    </select>
+			</td>
+   		</tr>
+   		<tr>
    			<td>检查时间：</td>
-   			<td><input type="text" id="checkstime" name="checkstime" class= "easyui-datebox" required="true"/>&nbsp;<font color="red">*</font></td>
+   			<td><input type="text" id="hygienetime" name="hygienetime" class= "easyui-datebox" required="true"/>&nbsp;<font color="red">*</font></td>
    		</tr>
    		<tr>
    			<td>描述：</td>
@@ -190,8 +210,8 @@
  </div>
  
  <div id="dlg-buttons">
- 	<a href="javascript:saveChecks()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
- 	<a href="javascript:closeChecksDialog()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
+ 	<a href="javascript:saveHygiene()" class="easyui-linkbutton" iconCls="icon-ok">保存</a>
+ 	<a href="javascript:closeHygieneDialog()" class="easyui-linkbutton" iconCls="icon-cancel">关闭</a>
  </div>
 </body>
 </html>

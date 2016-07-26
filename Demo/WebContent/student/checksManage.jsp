@@ -123,7 +123,7 @@
 <title>Insert title here</title>
 </head>
 <body style="margin: 1px">
- <table id="dg" title="卫生记录管理" class="easyui-datagrid"
+ <table id="dg" class="easyui-datagrid"
    fitColumns="true" pagination="true" rownumbers="true"
    url="${pageContext.request.contextPath}/checksController/list.do" fit="true" toolbar="#tb">
    <thead>
@@ -139,11 +139,11 @@
    </thead>
  </table>
  <div id="tb">
- 	<div>
+ 	<!-- <div>
  		<a href="javascript:openChecksAddDialog()" class="easyui-linkbutton" iconCls="icon-add" plain="true">创建</a>
  		<a href="javascript:openChecksModifyDialog()" class="easyui-linkbutton" iconCls="icon-edit" plain="true">修改</a>
  		<a href="javascript:deleteChecks()" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
- 	</div>
+ 	</div> -->
  	<div>
  		&nbsp;楼号：&nbsp;<input type="text" id="s_checksfloor" size="20" onkeydown="if(event.keyCode==13) searchChecks()"/>
  		&nbsp;寝室号：&nbsp;<input type="text" id="s_checksdormitoryno" size="20" onkeydown="if(event.keyCode==13) searchChecks()"/>
