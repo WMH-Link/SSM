@@ -19,7 +19,7 @@
 	src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript">
 	var url;
-
+	//根据条件查询信息
 	function searchSaleChance() {
 		$("#dg").datagrid('load', {
 			"repairid" : $("#s_repairid").val(),
@@ -27,14 +27,7 @@
 			"repairdormitoryno" : $("#s_repairdormitoryno").val(),
 		});
 	}
-
-	function openSaleChanceAddDialog() {
-		$("#dlg").dialog("open").dialog("setTitle", "添加销售机会信息");
-		$("#createMan").val('${currentUser.trueName}');
-		$("#createTime").val(getCurrentDateTime());
-		url = "${pageContext.request.contextPath}/Repair/save.do";
-	}
-
+	//编辑修改
 	function openSaleChanceModifyDialog() {
 		var selectedRows = $("#dg").datagrid("getSelections");
 		if (selectedRows.length != 1) {
@@ -47,7 +40,7 @@
 		url = "${pageContext.request.contextPath}/Repair/save.do?repairid="
 				+ row.repairid;
 	}
-
+	//保存
 	function saveSaleChance() {
 		$("#fm").form("submit", {
 			url : url,
@@ -80,7 +73,7 @@
 		$("#repairdotime").val("");
 		$("#remarks").val("");
 	}
-
+	//关闭
 	function closeSaleChanceDialog() {
 		$("#dlg").dialog("close");
 		resetValue();
