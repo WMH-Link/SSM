@@ -20,25 +20,25 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.demo.service.IRepairService;
+import com.demo.entity.Notice;
 import com.demo.controller.DateJsonValueProcessor;
 import com.demo.entity.Page;
-import com.demo.entity.Repair;
+import com.demo.service.INoticeService;
 import com.demo.util.IDFactory;
 import com.demo.util.ResponseUtil;
 import com.demo.util.StringUtil;
 
 /**
- * 报修管理Controller层
+ * 公告管理Controller层
  * 
  * @author 廖明兴
  *
  */
 @Controller
-@RequestMapping("/Repair")
-public class RepairController {
+@RequestMapping("/Notice")
+public class NoticeController {
 	@Resource
-	private IRepairService repairService;
+	private INoticeService noticeService;
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -62,27 +62,25 @@ public class RepairController {
 	public String list(
 			@RequestParam(value = "page", required = false) String page,
 			@RequestParam(value = "rows", required = false) String rows,
-			Repair s_repair, HttpServletResponse response) throws Exception {
-		Page pageBean=new Page(Integer.parseInt(page),Integer.parseInt(rows));
+			Notice s_notice, HttpServletResponse response) throws Exception {
+		Page pageBean = new Page(Integer.parseInt(page), Integer.parseInt(rows));
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("repairid", StringUtil.formatLike(s_repair.getRepairid()));
-		map.put("repairfloor", StringUtil.formatLike(s_repair.getRepairfloor()));
-		map.put("repairdormitoryno",
-				StringUtil.formatLike(s_repair.getRepairdormitoryno()));
-		map.put("thingid", s_repair.getThingid());
-		map.put("thingname", s_repair.getThingname());
-		map.put("repaircontent", s_repair.getRepaircontent());
-		map.put("repairtime", s_repair.getRepairtime());
-		map.put("repairdotime", s_repair.getRepairdotime());
+		map.put("noticeid", StringUtil.formatLike(s_notice.getNoticeid()));
+		map.put("noticetype", StringUtil.formatLike(s_notice.getNoticetype()));
+		map.put("noticetitle",StringUtil.formatLike(s_notice.getNoticetitle()));
+		map.put("noticeauthor", s_notice.getNoticeauthor());
+		map.put("noticecontent", s_notice.getNoticecontent());
+		map.put("noticetime", s_notice.getNoticetime());
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
-		List<Repair> repairList = repairService.find(map);
-		Long total = repairService.getTotal(map);
+		List<Notice> noticeList = noticeService.find(map);
+		Long total = noticeService.getTotal(map);
+		
 		JSONObject result = new JSONObject();
 		JsonConfig jsonConfig = new JsonConfig();
 		jsonConfig.registerJsonValueProcessor(java.util.Date.class,
 				new DateJsonValueProcessor("yyyy-MM-dd HH:mm"));
-		JSONArray jsonArray = JSONArray.fromObject(repairList, jsonConfig);
+		JSONArray jsonArray = JSONArray.fromObject(noticeList, jsonConfig);
 		result.put("rows", jsonArray);
 		result.put("total", total);
 		ResponseUtil.write(response, result);
@@ -98,20 +96,20 @@ public class RepairController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/save")
-	public String save(Repair repair, HttpServletResponse response)
+	public String save(Notice notice, HttpServletResponse response)
 			throws Exception {
 		int resultTotal = 0; // 操作的记录条数
-		
-		if (repair.getRepairid() == null || repair.getRepairid().equals("")) {
-			repair.setRepairid(IDFactory.createId());
-			resultTotal=repairService.add(repair);
-		} else{
-			String str = repair.getRepairid();
+
+		if (notice.getNoticeid() == null || notice.getNoticeid().equals("")) {
+			notice.setNoticeid(IDFactory.createId());
+			resultTotal = noticeService.add(notice);
+		} else {
+			String str = notice.getNoticeid();
 			String arr[] = str.split(",");
-			repair.setRepairid(arr[0]);
-			resultTotal = repairService.update(repair);
+			notice.setNoticeid(arr[0]);
+			resultTotal = noticeService.update(notice);
 		}
-		
+
 		JSONObject result = new JSONObject();
 		if (resultTotal > 0) {
 			result.put("success", true);
@@ -131,13 +129,13 @@ public class RepairController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/findById")
-	public String findById(@RequestParam(value = "repairid") String id,
+	public String findById(@RequestParam(value = "noticeid") String id,
 			HttpServletResponse response) throws Exception {
-		Repair repair = repairService.findById(Integer.parseInt(id));
+		Notice notice = noticeService.findById(Integer.parseInt(id));
 		JsonConfig jsonConfig = new JsonConfig();
 		jsonConfig.registerJsonValueProcessor(java.util.Date.class,
 				new DateJsonValueProcessor("yyyy-MM-dd HH:mm"));
-		JSONObject jsonObject = JSONObject.fromObject(repair, jsonConfig);
+		JSONObject jsonObject = JSONObject.fromObject(notice, jsonConfig);
 		ResponseUtil.write(response, jsonObject);
 		return null;
 	}

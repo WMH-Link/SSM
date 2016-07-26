@@ -3,20 +3,20 @@ package com.demo.service;
 import java.util.List;
 import java.util.Map;
 
-import com.demo.entity.Repair;
+import com.demo.entity.Notice;
 
 /**
- * 报修管理Service接口
+ * 公告管理Service接口
  * @author 廖明兴
  *
  */
-public interface IRepairService {
+public interface INoticeService {
 	/**
-	 * 查询报修管理集合
+	 * 查询公告集合
 	 * @param map
 	 * @return
 	 */
-	public List<Repair> find(Map<String,Object> map);
+	public List<Notice> find(Map<String,Object> map);
 	
 	/**
 	 * 获取总记录数
@@ -26,22 +26,23 @@ public interface IRepairService {
 	public Long getTotal(Map<String,Object> map);
 	
 	/**
-	 * 添加报修记录
+	 * 添加公告
 	 * @param saleChance
 	 * @return
 	 */
-	public int add(Repair repair);
+	public int add(Notice notice);
 	
 	/**
-	 * 修改报修记录
+	 * 修改公告
 	 * @param repair
 	 * @return
 	 */
-	public int update(Repair repair);
+	public int update(Notice notice);
+	
 	/**
 	 * 根据id查找实体
 	 * @param id
 	 * @return
 	 */
-	public Repair findById(Integer id);
+	public Notice findById(Integer id);
 }
