@@ -190,19 +190,8 @@
 				</tr>
 				<tr>
 					<td>学生宿舍：</td>
-
-					<td><select class="easyui-combobox" name="studentdormitoryno"
-						id="studentdormitoryno" style="width: 154px" editable="false"
-						panelHeight="auto">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-					</select>
+					<td><input type="text" id="studentdormitoryno" name="studentdormitoryno"
+						class="easyui-validatebox" required="true" /></td>
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 					<td>学生床号：</td>
 					<td><select class="easyui-combobox" name="studentbed"
