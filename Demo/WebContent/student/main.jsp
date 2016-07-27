@@ -133,7 +133,7 @@
 					</li>
 					
 					<li>
-						<a href="#">
+						<a href="javascript:openTab('公共物品','thingManage.jsp')">
 							&nbsp;&nbsp;<i class="glyphicon glyphicon-book"></i>
 							&nbsp;&nbsp;<font size="4">公共物品</font>	
 						</a>
