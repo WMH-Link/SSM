@@ -61,6 +61,11 @@
 		location.reload();
 	}
 </script>
+<style type="text/css">
+	input{
+		border:0px;
+	}
+</style>
 <title>Insert title here</title>
 </head>
 <body>
@@ -102,18 +107,18 @@
 		<form id="fm" method="post">
 			<table cellspacing="8px">
 				<tr>
-					<td>公告类型</td>
+					<td>公告类型:</td>
 					<td><input type="text" id="noticetype" name="noticetype"
 						readonly="readonly" /></td>
 				</tr>
 				<tr>
-					<td>公告标题</td>
+					<td>公告标题:</td>
 					<td><input type="text" id="noticetitle" name="noticetitle"
 						readonly="readonly" /></td>
 
 				</tr>
 				<tr>
-					<td>发布人</td>
+					<td>发布人:</td>
 					<td><input type="text" id="noticeauthor" name="noticeauthor"
 						readonly="readonly" /></td>
 				</tr>
@@ -121,10 +126,10 @@
 					<td>内容</td>
 					<td colspan="4"><textarea id="noticecontent"
 							name="noticecontent" style="width: 200px; height: 150px;"
-							readonly="readonly"></textarea></td>
+							readonly="readonly" ></textarea></td>
 				</tr>
 				<tr>
-					<td>发布时间</td>
+					<td>发布时间:</td>
 					<td><input type="datetime" id="noticetime" name="noticetime"
 						class="easyui-validatebox" readonly="readonly" />&nbsp;</td>
 				</tr>
