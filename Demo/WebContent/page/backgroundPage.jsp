@@ -119,7 +119,7 @@
   <ul>
 	  <li class="submenu"><a style="font-size: 18px;"><i class="icon icon-th-list"></i> <span>学生信息管理</span> </a>
 	      <ul>
-	        <li><a href="javascript:openTab('学生信息管理','student.jsp','icon-yxjhgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-yxjhgl'" style="width: 195px">学生信息管理</a></li>
+	        <li><a href="javascript:openTab('学生信息管理','student.jsp','icon-yxjhgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-yxjhgl'" style="width: 195px">/span></a></li>
 	      </ul>
 	    </li>
 	  <li class="submenu"> <a style="font-size: 18px;"><i class="icon icon-th-list"></i> <span>寝室管理</span> </a>
