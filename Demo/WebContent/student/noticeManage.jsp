@@ -24,6 +24,16 @@
 		});
 	});
 
+	//关键字查询
+	function searchSaleChance() {
+		$("#dg").datagrid('load', {
+			"noticeid" : $("#s_noticeid").val(),
+			"noticetype" : $("#s_noticetype").combobox("getValue"),
+			"noticetitle" : $("#s_noticetitle").val(),
+			"noticeauthor" : $("#s_noticeauthor").val(),
+		});
+	}
+
 	function resetValue() {
 		$("#noticetitle").val("");
 		$("#noticeauthor").val("");
@@ -54,21 +64,39 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table id="dg" title="公告管理" class="easyui-datagrid" fitColumns="true"
-		pagination="true"
+	<table id="dg" class="easyui-datagrid" fitColumns="true"
+		pagination="true" rownumbers="true"
 		url="${pageContext.request.contextPath}/Notice/list.do" fit="true"
 		toolbar="#tb">
 		<thead>
 			<tr>
-				<th field="noticetitle" width="55%" align="center"
-					formatter="formatState" style="margin-left:20%">公告标题</th>
+				<th field="noticetitle" width="45%" align="center"
+					formatter="formatState" style="margin-left: 20%">公告标题</th>
+				<th field="noticetype" width="10" align="center">公告类型</th>
 				<th field="noticeauthor" width="10%" align="center">发布人</th>
-				<th field="noticetime" width="35%" align="center">发布时间</th>
+				<th field="noticetime" width="33%" align="center">发布时间</th>
 			</tr>
 		</thead>
 	</table>
+	<div id="tb">
+		&nbsp;公告类型：&nbsp;
+		<!-- <input type="text" id="s_noticetype" size="20"
+				onkeydown="if(event.keyCode==13) searchSaleChance()" /> -->
+		<select class="easyui-combobox" id="s_noticetype" editable="false"
+			panelHeight="auto">
+			<option value="">请选择...</option>
+			<option value="新闻">新闻</option>
+			<option value="通知">通知</option>
+		</select> &nbsp;公告标题：&nbsp;<input type="text" id="s_noticetitle" size="20"
+			onkeydown="if(event.keyCode==13) searchSaleChance()" />
+		&nbsp;发布人：&nbsp;<input type="text" id="s_noticeauthor" size="20"
+			onkeydown="if(event.keyCode==13) searchSaleChance()" /> <a
+			href="javascript:searchSaleChance()" class="easyui-linkbutton"
+			iconCls="icon-search" plain="true">搜索</a>
+	</div>
+
 	<div id="dlg" class="easyui-dialog"
-		style="width: 500px; height: 450px; padding: 10px 20px" closed="true"
+		style="width: 350px; height: 400px; padding: 10px 20px" closed="true"
 		buttons="#dlg-buttons">
 
 		<form id="fm" method="post">
@@ -92,7 +120,7 @@
 				<tr>
 					<td>内容</td>
 					<td colspan="4"><textarea id="noticecontent"
-							name="noticecontent" style="width: 200px;height: 200px;"
+							name="noticecontent" style="width: 200px; height: 150px;"
 							readonly="readonly"></textarea></td>
 				</tr>
 				<tr>

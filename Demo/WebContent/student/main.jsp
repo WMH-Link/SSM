@@ -20,6 +20,7 @@
 <script src="${pageContext.request.contextPath}/js/jquery.flot.pie.js"></script>
 <script src="${pageContext.request.contextPath}/js/jquery.flot.orderBars.js"></script>
 <script src="${pageContext.request.contextPath}/js/jquery.flot.resize.js"></script>
+<script src="${pageContext.request.contextPath}/js/common.js"></script>
 <%-- <script src="${pageContext.request.contextPath}/js/bar.js"></script> --%>
 
 <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
@@ -28,7 +29,11 @@
 <script src="${pageContext.request.contextPath}/jquery-easyui-1.4.5/locale/easyui-lang-zh_CN.js"></script>
 
 <script type="text/javascript">
-		
+
+$(function(){
+	$("#date").html(getCurrentDate());  
+});
+
 	function openTab(text,url){
 		if($("#tabs").tabs("exists",text)){
 			$("#tabs").tabs("select",text);
@@ -49,7 +54,7 @@
 <div class="navbar navbar-fixed-top" >	
 	<div class="navbar-inner" style="background-color: #333">		
 		<div class="container">			
-			<a class="brand" href="./">学生宿舍信息系统</a>			
+			<a class="brand" href="#">学生宿舍信息系统</a>			
 			<div class="nav-collapse">			
 				<ul class="nav pull-right">					
 					<li class="dropdown">						
@@ -87,7 +92,7 @@
 		<div class="row">			
 			<div class="col-xs-3">
 				<div align="center" style="margin-bottom: 10px">
-					<span id="date">欢迎您，2016年7月25日 星期一</span>
+					欢迎您，今天是<span id="date"></span>
 				</div>	
 							
 				<div class="account-container">									
@@ -111,7 +116,7 @@
 				<hr />
 				
 				<ul id="main-nav" class="nav nav-tabs nav-stacked">					
-					<li class="active">
+					<li>
 						<a href="#">
 							&nbsp;&nbsp;<i class="glyphicon glyphicon-home"></i>
 							&nbsp;&nbsp;<font size="4">主页</font>	
@@ -167,8 +172,21 @@
 						
 			<div class="col-xs-9">
 				<div class="easyui-tabs" style="height:500px" id="tabs">
-					<div title="首页">
-						<div align="center" style="padding-top: 100px"><font color="red" size="10">欢迎使用</font></div>
+					<div title="主页">
+						<div align="center" style="padding-top: 80px">
+							<font color="red" size="10">欢迎使用</font><br/><br/><br/>							
+						</div>
+						<div style="padding-left:150px;padding-right:150px">
+							<font size="5">注意事项：</font>
+							<ul >
+								<li>学生必须在指定的寝室、铺位入住，不得随意调换寝室和床位；</li> 
+								<li>严禁男、女学生跨入对方的生活区，禁止串寝室；</li> 
+								<li>严禁在寝室抽烟、酗酒、赌博、玩牌，不准在寝室进行聚会庆典活动；</li>
+								<li>严禁在寝室内私藏铁棍、刀具等物品，不准将易燃物品、化学药品及其它危险物品放在寝室内，不准私接电线、电灯及使用电器设备，不得无故动用消防灭火器具；</li>
+								<li>寝室内务卫生做到整洁、统一、有序，养成讲究个人和集体卫生的好习惯，寝室内不准乱涂写、乱张贴，保持墙壁洁白无污迹；</li>
+								<li>寝室长负责检查督促值日生完成本寝室内务工作,做好安全防范工作，抵制各种不良行为，发现问题不得隐瞒，需及时向老师报告；</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
