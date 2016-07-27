@@ -31,7 +31,7 @@
 <script type="text/javascript">
 
 $(function(){
-	$("#date").html(getCurrentDate()); 
+	$("#date").html(getCurrentDate());  
 });
 
 	function openTab(text,url){
