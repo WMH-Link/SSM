@@ -28,7 +28,7 @@
  
  function searchSaleChance(){
 	 $("#dg").datagrid('load',{
-		"thingno":$("#s_customerName").val(), 
+		"thingdormitory":$("#s_customerName").val(), 
 		"thingname":$("#s_overView").val(), 
 		"thingstate":$("#s_state").combobox("getValue")
 	 });
@@ -151,7 +151,7 @@
  	<div>
  	
  	<!-- 客户名称  概要 创建人 分配状态-->
- 		&nbsp;物品编号：&nbsp;<input type="text" id="s_customerName" size="20" onkeydown="if(event.keyCode==13) searchSaleChance()"/>
+ 		&nbsp;宿舍号：&nbsp;<input type="text" id="s_customerName" size="20" onkeydown="if(event.keyCode==13) searchSaleChance()"/>
  		&nbsp;物品名称：&nbsp;<input type="text" id="s_overView" size="20" onkeydown="if(event.keyCode==13) searchSaleChance()"/>
  		<!--  &nbsp;物品类型：&nbsp;<input type="text" id="s_createMan" size="20" onkeydown="if(event.keyCode==13) searchSaleChance()"/>-->
  		&nbsp;物品状态：&nbsp;<select class="easyui-combobox" id="s_state" editable="false" panelHeight="auto" >

@@ -124,7 +124,7 @@ $(function(){
 					</li>
 					
 					<li>
-						<a href="#">
+						<a href="javascript:openTab('公告','noticeManage.jsp')">
 							&nbsp;&nbsp;<i class="glyphicon glyphicon-envelope"></i>
 							&nbsp;&nbsp;<font size="4">公告</font>	
 						</a>
@@ -138,16 +138,16 @@ $(function(){
 					</li>
 					
 					<li>
-						<a href="#">
+						<a href="javascript:openTab('公共物品','thingManage.jsp')">
 							&nbsp;&nbsp;<i class="glyphicon glyphicon-book"></i>
 							&nbsp;&nbsp;<font size="4">公共物品</font>	
 						</a>
 					</li>
 					
 					<li>
-						<a href="#">
+						<a href="javascript:openTab('报修记录','repairManage.jsp')">
 							&nbsp;&nbsp;<i class="glyphicon glyphicon-wrench"></i>
-							&nbsp;&nbsp;<font size="4">保修记录</font>	
+							&nbsp;&nbsp;<font size="4">报修记录</font>	
 						</a>
 					</li>
 					
