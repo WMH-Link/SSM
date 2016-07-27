@@ -67,7 +67,7 @@ $(function(){
 							</li>
 							
 							<li>
-								<a href="javascript:openTab('反馈','Feedback.jsp')"><i class="icon-lock"></i> 反馈 </a>
+								<a href="javascript:openTab('反馈','FeedBack.jsp')"><i class="icon-lock"></i> 反馈 </a>
 							</li>
 							
 							<li class="divider"></li>

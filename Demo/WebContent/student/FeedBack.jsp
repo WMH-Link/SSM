@@ -15,71 +15,51 @@
 </head>
 <body>
 
-
-
-	<div class="span9">
-		<h1 class="page-title">
-			<i class="icon-th-large"></i> 反馈管理
-		</h1>
-
-		<div class="row">
-			<div class="span9">
-				<div class="widget">
-					<div class="widget-header">
-						<h3>增加反馈</h3>
-					</div>
-					<!-- /widget-header -->
-
-					<div class="widget-content">
-						<div class="tabbable">
-							<ul class="nav nav-tabs">
-								<li class="active"><a href="#1" data-toggle="tab">Information</a>
-								</li>
-							</ul>
-							<br />
-							<div class="tab-content">
-								<div class="tab-pane active" id="1">
-								 <div id="edit-profile" class="form-horizontal" > 
-									<fieldset>
-									<input  id="studentId" type="hidden" value="${student.studentid}" name="studentId" >
-										<div class="control-group">
-											<label class="control-label" >反馈内容</label>
-											<div class="controls">
-												<input type="text" class="input-medium disabled"
-													id="feedContent" name="feedContent">
-											</div>
-											<!-- /controls -->
-										</div>
-										<div class="control-group">
-											<label class="control-label" >备注</label>
-											<div class="controls">
-												<input type="text" class="input-medium disabled"
-													id="remarks" name="remarks">
-											</div>
-											<!-- /controls -->
-										</div>
-										<!-- /control-group -->
-										<br />
-										<div class="form-actions">
-											<input type="submit" class="btn btn-primary" id="FBBtn" />
-											
-											<button class="btn">Cancel</button>
-										</div>
-										<!-- /form-actions -->
-									</fieldset>
+	<div class="widget">
+		<div class="widget-content">
+			<div class="tabbable">
+				<br />
+				<div class="tab-content">
+					<div class="tab-pane active">
+						<div id="edit-profile" class="form-horizontal">
+							<fieldset>
+								<input id="studentId" type="hidden" value="${student.studentid}"
+									name="studentId">
+								<div class="control-group">
+									<label class="control-label">反馈内容</label>
+									<div class="controls">
+										<textarea rows="6" style="width: 400px" class="input-medium disabled"
+											id="feedContent" name="feedContent"></textarea>
 									</div>
+									<!-- /controls -->
 								</div>
-							</div>
+								<br />
+								<div class="control-group">
+									<label class="control-label">备注</label>
+									<div class="controls">
+										<textarea rows="3" style="width: 400px" class="input-medium disabled" id="remarks"
+											name="remarks"></textarea>
+									</div>
+									<!-- /controls -->
+								</div>
+								<!-- /control-group -->
+								<br /><br />
+								<div class="form-actions">
+									<input type="submit" class="btn btn-primary" id="FBBtn" />
+
+									<!-- <button class="btn">Cancel</button> -->
+								</div>
+								<!-- /form-actions -->
+							</fieldset>
 						</div>
 					</div>
-					<!-- /widget-content -->
 				</div>
-				<!-- /widget -->
 			</div>
-			<!-- /span9 -->
 		</div>
+		<!-- /widget-content -->
 	</div>
-<script src="/Demo/bootstrap/js/jquery-1.9.1.min.js"></script>
+	<!-- /widget -->
+	<script src="/Demo/bootstrap/js/jquery-1.9.1.min.js"></script>
 <script src="/Demo/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -105,11 +85,7 @@ $(function(){
             				alert("error");
             			},
             			success:function(response){
-            				if(response.result==1){
-            					window.location.href="/Demo/student/thingManage.jsp";
-            				}else {
-            					alert(response.tip);
-            				}
+            				alert("提交成功");
             			}
             			
             		});
