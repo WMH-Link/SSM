@@ -35,7 +35,7 @@
 
 	function searchSaleChance() {
 		$("#dg").datagrid('load', {
-			"thingno" : $("#s_customerName").val(),
+			"thingdormitory" : $("#s_customerName").val(),
 			"thingname" : $("#s_overView").val(),
 			"thingstate" : $("#s_state").combobox("getValue")
 		});
@@ -136,7 +136,7 @@
 <title>校园宿舍管理系统</title>
 </head>
 <body style="margin: 1px">
-	<table id="dg" title="公共物品管理" class="easyui-datagrid" fitColumns="true"
+	<table id="dg" class="easyui-datagrid" fitColumns="true"
 		pagination="true" rownumbers="true"
 		url="${pageContext.request.contextPath}/thing/list.do" fit="true"
 		toolbar="#tb">
@@ -163,7 +163,7 @@
 		<div>
 
 			<!-- 客户名称  概要 创建人 分配状态-->
-			&nbsp;物品编号：&nbsp;<input type="text" id="s_customerName" size="20"
+			&nbsp;寝室号：&nbsp;<input type="text" id="s_customerName" size="20"
 				onkeydown="if(event.keyCode==13) searchSaleChance()" />
 			&nbsp;物品名称：&nbsp;<input type="text" id="s_overView" size="20"
 				onkeydown="if(event.keyCode==13) searchSaleChance()" />
