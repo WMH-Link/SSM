@@ -92,7 +92,7 @@
 				<tr>
 					<td>内容</td>
 					<td colspan="4"><textarea id="noticecontent"
-							name="noticecontent" style="width: 200px;; height: 200px;"
+							name="noticecontent" style="width: 200px;height: 200px;"
 							readonly="readonly"></textarea></td>
 				</tr>
 				<tr>
