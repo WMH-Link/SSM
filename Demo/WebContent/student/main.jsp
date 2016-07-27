@@ -15,11 +15,11 @@
 <link href="${pageContext.request.contextPath}/jquery-easyui-1.4.5/themes/bootstrap/easyui.css" rel="stylesheet">
 
 <script src="${pageContext.request.contextPath}/bootstrap/js/jquery-1.9.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/excanvas.min.js"></script>
+<%-- <script src="${pageContext.request.contextPath}/js/excanvas.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/jquery.flot.js"></script>
 <script src="${pageContext.request.contextPath}/js/jquery.flot.pie.js"></script>
 <script src="${pageContext.request.contextPath}/js/jquery.flot.orderBars.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery.flot.resize.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.flot.resize.js"></script> --%>
 <script src="${pageContext.request.contextPath}/js/common.js"></script>
 <%-- <script src="${pageContext.request.contextPath}/js/bar.js"></script> --%>
 
@@ -38,7 +38,7 @@ $(function(){
 		if($("#tabs").tabs("exists",text)){
 			$("#tabs").tabs("select",text);
 		}else{
-			var content="<iframe frameborder=0 scrolling='aotu' style='width:100%;height:100%' src='${pageContext.request.contextPath}/student/"+url+"'></iframe>";
+			var content="<iframe frameborder=0 scrolling='aotu' style='width:100%;height:470px' src='${pageContext.request.contextPath}/student/"+url+"'></iframe>";
 			$("#tabs").tabs("add",{
 				title:text,
 				closable:true,
@@ -63,7 +63,7 @@ $(function(){
 						</a>						
 						<ul class="dropdown-menu">
 							<li>
-								<a href="#"><i class="icon-user"></i> 个人信息  </a>
+								<a href="javascript:openTab('个人信息','studentManage.jsp')"><i class="icon-user"></i> 个人信息  </a>
 							</li>
 							
 							<li>
@@ -117,7 +117,7 @@ $(function(){
 				
 				<ul id="main-nav" class="nav nav-tabs nav-stacked">					
 					<li>
-						<a href="#">
+						<a href="javascript:openTab('主页','main.jsp')">
 							&nbsp;&nbsp;<i class="glyphicon glyphicon-home"></i>
 							&nbsp;&nbsp;<font size="4">主页</font>	
 						</a>
