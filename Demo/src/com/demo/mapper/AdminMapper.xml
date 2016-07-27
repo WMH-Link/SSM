@@ -36,7 +36,7 @@
     select 
     <include refid="Base_Column_List" />
     from admin
-    where adminName = #{adminname,jdbcType=VARCHAR} and adminPassword = #{adminpassword,jdbcType=VARCHAR} and adminPosition = #{adminposition,jdbcType=VARCHAR}
+    where adminNo = #{adminno,jdbcType=VARCHAR} and adminPassword = #{adminpassword,jdbcType=VARCHAR} and adminPosition = #{adminposition,jdbcType=VARCHAR}
   </select>
   
   

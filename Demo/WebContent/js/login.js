@@ -3,7 +3,7 @@ $(function(){
 	$("#login").click(function(){  
 
             // 做表单输入校验  
-            var userId = $("#AccountUserName");  
+            var userId = $("#AccountUserNo");  
             var password = $("#AccountPassword");  
             var type = $("#AccountType");  
             var no=0;
@@ -33,7 +33,7 @@ $(function(){
             			type:"post",
             			dataType:"json",
             			data:{
-            				studentno:$("#AccountUserName").val(),
+            				studentno:$("#AccountUserNo").val(),
             				studentpassword:$("#AccountPassword").val(),
             			},
             			error:function(response){
@@ -56,7 +56,7 @@ $(function(){
             			type:"post",
             			dataType:"json",
             			data:{
-    	        				adminname:$("#AccountUserName").val(),
+    	        				adminno:$("#AccountUserNo").val(),
     	        				adminpassword:$("#AccountPassword").val(),
     	        				adminposition:$("#AccountType").val()
             			},

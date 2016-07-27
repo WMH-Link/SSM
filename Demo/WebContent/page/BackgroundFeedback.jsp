@@ -13,7 +13,7 @@
 <script type="text/javascript">
 function searchUser(){
 	 $("#dg").datagrid('load',{
-		"noticepeople":$("#s_noticePeople").val() 
+		"noticetime":$("#s_noticePeople").datebox("getValue")
 		
 	 });
  }
@@ -34,7 +34,7 @@ function searchUser(){
 	</table>
 	<div id="tb">
 		<div>
-	 		&nbsp;反馈Id：&nbsp;<input type="text" id="s_noticePeople" size="20" onkeydown="if(event.keyCode==13) searchUser()"/>
+	 		&nbsp;反馈时间：&nbsp;<input type="text" class="easyui-datebox" name="s_noticePeople"  id="s_noticePeople" size="20" onkeydown="if(event.keyCode==13) searchUser()"/>
 	 		<a href="javascript:searchUser()" class="easyui-linkbutton" iconCls="icon-search" plain="true">搜索</a>
  		</div>
 	</div>

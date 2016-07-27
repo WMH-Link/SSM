@@ -61,11 +61,10 @@ public class FeedbackController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/list")
-	public String list(@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows,Feedback s_Feedback)throws Exception{
-		System.out.println("page="+page+" rows="+rows +" s_Feedback="+s_Feedback);
+	public String list(@RequestParam(value="page",required=false)String page,@RequestParam(value="rows",required=false)String rows,String noticetime)throws Exception{
 		PageBean pageBean=new PageBean(Integer.parseInt(page),Integer.parseInt(rows));
 		Map<String,Object> map=new HashMap<String,Object>();
-		map.put("noticepeople", StringUtil.formatLike(s_Feedback.getNoticepeople()));
+		map.put("noticetime", noticetime);
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
 		List<Feedback> feedbackList=feedbackService.find(map);
@@ -88,7 +87,7 @@ public class FeedbackController {
 	@RequestMapping("/addFB")
 	public void feedbackAdd(String studentId,String feedContent,String remarks) throws IOException
 	{
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");//设置日期格式
 		String time=df.format(new Date());
 		String studentid=request.getParameter("studentId");
 		String feedcontent=request.getParameter("feedContent");

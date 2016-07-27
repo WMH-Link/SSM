@@ -117,33 +117,33 @@
 <!--sidebar-menu-->
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> 导航菜单</a>
   <ul>
-	  <li class="submenu"><a style="font-size: 18px;"><i class="icon icon-th-list"></i> <span>学生信息管理</span> </a>
+	  <li class="submenu"><a style="font-size: 18px;"><i class="icon icon-th-list"></i> <span style="font-size: 16px;">学生信息管理</span> </a>
 	      <ul>
-	        <li><a href="javascript:openTab('学生信息管理','student.jsp','icon-yxjhgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-yxjhgl'" style="width: 195px">/span></a></li>
+	        <li><a href="javascript:openTab('学生信息管理','student.jsp','icon-yxjhgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-yxjhgl'" style="width: 195px"></a></li>
 	      </ul>
 	    </li>
 	  <li class="submenu"> <a style="font-size: 18px;"><i class="icon icon-th-list"></i> <span>寝室管理</span> </a>
 	      <ul>
-	        <li><a href="javascript:openTab('公共物品管理','thing.jsp','icon-khxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 195px;">公共物品管理</a></li>
-			<li><a href="javascript:openTab('保修记录','Repair.jsp','icon-khlsgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khlsgl'" style="width: 195px;">保修记录</a></li>
-			<li><a href="javascript:openTab('卫生记录','hygieneManage.jsp','icon-khxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 195px;">卫生记录</a></li>
+	        <li><a href="javascript:openTab('公共物品管理','thing.jsp','icon-khxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 195px;"><span style="font-size: 16px;">公共物品管理</span></a></li>
+			<li><a href="javascript:openTab('保修记录','Repair.jsp','icon-khlsgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khlsgl'" style="width: 195px;"><span style="font-size: 16px;">保修记录</span></a></li>
+			<li><a href="javascript:openTab('卫生记录','hygieneManage.jsp','icon-khxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 195px;"><span style="font-size: 16px;">卫生记录</span></a></li>
 	   
 	      </ul>
    	  </li>
    	   <li class="submenu"> <a style="font-size: 18px;"><i class="icon icon-th-list"></i> <span>考勤管理</span> </a>
 	      <ul>
-	        <li><a href="javascript:openTab('考勤管理','checksManage.jsp','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 195px;">考勤管理</a></li>
+	        <li><a href="javascript:openTab('考勤管理','checksManage.jsp','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 195px;"><span style="font-size: 16px;">考勤管理</span></a></li>
 	        
 	      </ul>
    	  </li>
    	   <li class="submenu"> <a href="#" style="font-size: 18px;"><i class="icon icon-th-list"></i> <span>公告管理</span> </a>
 	      <ul>
-	        <li><a href="javascript:openTab('公告','notice.jsp','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 195px;">公告</a></li>
+	        <li><a href="javascript:openTab('公告','notice.jsp','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 195px;"><span style="font-size: 16px;">公告</span></a></li>
 	      </ul>
    	  </li>
   	  <li class="submenu"> <a  style="font-size: 18px;"><i class="icon icon-th-list"></i> <span>反馈管理</span></a>
   	  	<ul>
-	        <li><a  href="javascript:openTab('反馈信息','BackgroundFeedback.jsp','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 195px;font-size: 18px;">反馈信息</a></li>
+	        <li><a  href="javascript:openTab('反馈信息','BackgroundFeedback.jsp','icon-sjzdgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-sjzdgl'" style="width: 195px;font-size: 18px;"><span style="font-size: 16px;">反馈信息</span></a></li>
 	   </ul>
 	  </li> 
   </ul>

@@ -59,7 +59,7 @@
 					<div class="control-group">
 						<label class="control-label" for="userName">登录账号</label>
 						<div class="controls">
-							<input type="text" class="" id="AccountUserName" />
+							<input type="text" class="" id="AccountUserNo" />
 						</div>
 					</div>
 					<div class="control-group">

@@ -54,12 +54,12 @@ public class LoginController {
 	 */
 	@RequestMapping("/login")
 	public void loginUser() throws IOException{
-		String adminName=request.getParameter("adminname");
+		String adminNo=request.getParameter("adminno");
 		String adminPassword=request.getParameter("adminpassword");
 		String adminPosition=request.getParameter("adminposition");
 		//调用service
 		Admin admin=new Admin();
-		admin.setAdminname(adminName);
+		admin.setAdminno(adminNo);
 		admin.setAdminpassword(adminPassword);
 		admin.setAdminposition(adminPosition);
 		boolean flag =false;

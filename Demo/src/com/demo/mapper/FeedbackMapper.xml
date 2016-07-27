@@ -32,8 +32,8 @@
     	<include refid="Base_Column_List" />
    		 from feedback
 		<where>
-			<if test="noticepeople!=null and noticepeople!='' ">
-				and noticePeople like #{noticepeople ,jdbcType=VARCHAR}
+			<if test="noticetime!=null and noticetime!='' ">
+				and noticeTime like #{noticetime ,jdbcType=VARCHAR}
 			</if>
 		</where>
 		<if test="start!=null and size!=null">
