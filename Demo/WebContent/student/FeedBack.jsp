@@ -5,12 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>修改密码</title>
-    <link href="/Demo/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/Demo/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="/Demo/css/mainPage/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Demo/css/mainPage/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="/Demo/css/mainPage/font-awesome.css" rel="stylesheet" />
     <link href="/Demo/css/mainPage/adminia.css" rel="stylesheet" /> 
-    <link href="/Demo/bootstrap/css/adminia-responsive.css" rel="stylesheet" /> 
-     <link href="/Demo/bootstrap/css/font-awesome.css" rel="stylesheet" />
-         
+    <link href="/Demo/css/mainPage/adminia-responsive.css" rel="stylesheet" />         
     <link href="/Demo/css/plans.css" rel="stylesheet" /> 
  
 </head>

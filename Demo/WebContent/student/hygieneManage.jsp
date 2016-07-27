@@ -3,6 +3,7 @@
 <html>
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>卫生记录</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/jquery-easyui-1.4.5/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/jquery-easyui-1.4.5/themes/icon.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/jquery-easyui-1.4.5/jquery.min.js"></script>
@@ -121,7 +122,6 @@
  }
  
 </script>
-<title>Insert title here</title>
 </head>
 <body style="margin: 1px">
  <table id="dg" class="easyui-datagrid"

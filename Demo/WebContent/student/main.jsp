@@ -67,13 +67,13 @@ $(function(){
 							</li>
 							
 							<li>
-								<a href="javascript:openTab('修改密码','changePassword.jsp')"><i class="icon-lock"></i> 修改密码</a>
+								<a href="javascript:openTab('反馈','Feedback.jsp')"><i class="icon-lock"></i> 反馈 </a>
 							</li>
 							
 							<li class="divider"></li>
 							
 							<li>
-								<a href="javascript:logout()"><i class="glyphicon glyphicon-off"></i> 退出</a>
+								<a href="javascript:logout()"><i class="glyphicon glyphicon-off"></i> 退出 </a>
 							</li>
 						</ul>
 					</li>
