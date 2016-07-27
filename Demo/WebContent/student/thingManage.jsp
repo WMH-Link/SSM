@@ -29,6 +29,7 @@
 				}
 			}
 		});
+		$("#dg").datagrid({singleSelect:true});
 		
 	});
 
@@ -141,7 +142,7 @@
 		toolbar="#tb">
 		<thead>
 			<tr>
-				<th field="cb" checkbox="true" align="center"></th>
+			<!-- 	<th field="cb" checkbox="true" align="center"></th> -->
 				<th field="thingno" width="50" align="center">物品编号</th>
 				<th field="thingname" width="100" align="center">物品名称</th>
 				<th field="thingstate" width="100" align="center">物品状态</th>
