@@ -18,6 +18,12 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript">
+	$(function() {
+		$("#dg").datagrid({
+			singleSelect : true
+		});
+	});
+
 	function resetValue() {
 		$("#noticetitle").val("");
 		$("#noticeauthor").val("");
@@ -29,15 +35,11 @@
 				+ row.noticetitle + "</a>";
 	}
 
-	//修改
+	//展示
 	function openSaleChanceModifyDialog() {
 		var selectedRows = $("#dg").datagrid("getSelections");
-		/* if (selectedRows.length != 1) {
-			$.messager.alert("系统提示", "请选择一条要编辑的数据！");
-			return;
-		} */
 		var row = selectedRows[0];
-		$("#dlg").dialog("open").dialog("setTitle", "编辑公告信息");
+		$("#dlg").dialog("open").dialog("setTitle", "信息");
 		$("#fm").form("load", row);
 		url = "${pageContext.request.contextPath}/Notice/save.do?noticeid="
 				+ row.noticeid;
@@ -52,21 +54,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div style="width: 100%; height: 600px;">
-		<table id="dg" title="公告管理" class="easyui-datagrid" fitColumns="true"
-			pagination="true"
-			url="${pageContext.request.contextPath}/Notice/list.do" fit="true"
-			toolbar="#tb">
-			<thead>
-				<tr>
-					<th field="noticetitle" width="40%" align="center"
-						formatter="formatState">公告标题</th>
-					<th field="noticeauthor" width="10%" align="center">发布人</th>
-					<th field="noticetime" width="15%" align="center">发布时间</th>
-				</tr>
-			</thead>
-		</table>
-	</div>
+	<table id="dg" title="公告管理" class="easyui-datagrid" fitColumns="true"
+		pagination="true"
+		url="${pageContext.request.contextPath}/Notice/list.do" fit="true"
+		toolbar="#tb">
+		<thead>
+			<tr>
+				<th field="noticetitle" width="55%" align="center"
+					formatter="formatState" style="margin-left:20%">公告标题</th>
+				<th field="noticeauthor" width="10%" align="center">发布人</th>
+				<th field="noticetime" width="35%" align="center">发布时间</th>
+			</tr>
+		</thead>
+	</table>
 	<div id="dlg" class="easyui-dialog"
 		style="width: 500px; height: 450px; padding: 10px 20px" closed="true"
 		buttons="#dlg-buttons">
@@ -106,7 +106,7 @@
 
 	<div id="dlg-buttons">
 		<a href="javascript:closeSaleChanceDialog()" class="easyui-linkbutton"
-			iconCls="icon-cancel" >关闭</a>
+			iconCls="icon-cancel">关闭</a>
 	</div>
 </body>
 </html>

@@ -76,7 +76,8 @@
 	//关闭
 	function closeSaleChanceDialog() {
 		$("#dlg").dialog("close");
-		resetValue();
+		$('#dg').datagrid('reload');
+		//resetValue();
 	}
 </script>
 
@@ -88,10 +89,10 @@ label {
 <title>Insert title here</title>
 </head>
 <body style="margin: 1px">
-	<table id="dg" title="报修管理" class="easyui-datagrid" fitColumns="true"
+	<table id="dg" title="报修管理" class="easyui-datagrid " fitColumns="true"
 		pagination="true" rownumbers="true"
 		url="${pageContext.request.contextPath}/Repair/list.do" fit="true"
-		toolbar="#tb">
+		toolbar="#tb"  style="">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true" align="center"></th>
