@@ -41,7 +41,7 @@ $(function(){
             			},
             			success:function(response){
             				if(response.result==1){
-            					window.location.href="/Demo/student/changePassword.jsp";
+            					window.location.href="/Demo/student/main.jsp";
             				}else {
             					alert(response.tip);
             				}

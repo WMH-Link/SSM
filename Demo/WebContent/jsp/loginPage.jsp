@@ -6,9 +6,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>登录界面</title>
     
-    <link href="/Demo/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/Demo/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />       
-    <link href="/Demo/bootstrap/css/font-awesome.css" rel="stylesheet" />
+    <link href="/Demo/css/mainPage/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Demo/css/mainPage/bootstrap-responsive.min.css" rel="stylesheet" />       
+    <link href="/Demo/css/mainPage/font-awesome.css" rel="stylesheet" />
     
     <link href="/Demo/css/mainPage/adminia.css" rel="stylesheet" /> 
     <link href="/Demo/css/mainPage/adminia-responsive.css" rel="stylesheet" /> 
@@ -75,7 +75,6 @@
 				                	<option value="">请选择用户类型...</option>
 				                	<option value="学生">学生</option>
 									<option value="寝室管理员">寝室管理员</option>
-									<option value="寝室记录员">寝室记录员</option>
 			                </select>
 						</div>
 					</div>

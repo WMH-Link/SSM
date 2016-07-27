@@ -15,14 +15,7 @@
 <link href="${pageContext.request.contextPath}/jquery-easyui-1.4.5/themes/bootstrap/easyui.css" rel="stylesheet">
 
 <script src="${pageContext.request.contextPath}/bootstrap/js/jquery-1.9.1.min.js"></script>
-<%-- <script src="${pageContext.request.contextPath}/js/excanvas.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery.flot.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery.flot.pie.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery.flot.orderBars.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery.flot.resize.js"></script> --%>
 <script src="${pageContext.request.contextPath}/js/common.js"></script>
-<%-- <script src="${pageContext.request.contextPath}/js/bar.js"></script> --%>
-
 <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath}/jquery-easyui-1.4.5/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
@@ -47,19 +40,26 @@ $(function(){
 		}
 	}
 	
+	function logout(){
+		$.messager.confirm("系统提示","您确定要退出系统吗？",function(r){
+			if(r){
+				window.location.href='/Demo/LoginController/logout.do';
+			} 
+		 });
+	}
 </script>
 
 </head>
 <body>
 <div class="navbar navbar-fixed-top" >	
-	<div class="navbar-inner" style="background-color: #333">		
-		<div class="container">			
-			<a class="brand" href="#">学生宿舍信息系统</a>			
-			<div class="nav-collapse">			
+	<div class="navbar-inner" style="background-color: #333" >		
+		<div class="container">							
+			<div class="nav-collapse">	
+			<font size="5" color="white">学生宿舍信息系统</font>		
 				<ul class="nav pull-right">					
 					<li class="dropdown">						
 						<a data-toggle="dropdown" class="dropdown-toggle " href="#">
-							设置 <b class="caret"></b>							
+							<font size="2" color="white">设置</font> <b class="caret" style="color: white"></b>							
 						</a>						
 						<ul class="dropdown-menu">
 							<li>
@@ -67,13 +67,13 @@ $(function(){
 							</li>
 							
 							<li>
-								<a href="#"><i class="icon-lock"></i> 修改密码</a>
+								<a href="javascript:openTab('修改密码','changePassword.jsp')"><i class="icon-lock"></i> 修改密码</a>
 							</li>
 							
 							<li class="divider"></li>
 							
 							<li>
-								<a href="#"><i class="glyphicon glyphicon-off"></i> 退出</a>
+								<a href="javascript:logout()"><i class="glyphicon glyphicon-off"></i> 退出</a>
 							</li>
 						</ul>
 					</li>
@@ -101,13 +101,13 @@ $(function(){
 					</div> 
 										
 					<div class="account-details">					
-						<span class="account-name">学生姓名</span>						
-						<span class="account-no">学号</span>						
+						<span class="account-name">${student.studentname}</span>						
+						<span class="account-no"style="margin-top: 5px">${student.studentno}</span>						
 							
-						<span class="account-actions">
-							<a href="javascript:;">修改密码</a> |
+						<span class="account-actions" style="margin-top: 10px">
+							<a href="javascript:openTab('修改密码','changePassword.jsp')"><font size="2">修改密码</font></a> |
 							
-							<a href="javascript:;">注销</a>
+							<a href="javascript:logout()"><font size="2">注销</font></a>
 						</span>
 						
 					</div> 														

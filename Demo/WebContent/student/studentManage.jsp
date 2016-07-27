@@ -4,205 +4,83 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
-
+    <link href="/Demo/css/mainPage/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Demo/css/mainPage/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="/Demo/css/mainPage/font-awesome.css" rel="stylesheet" />
+    <link href="/Demo/css/mainPage/adminia.css" rel="stylesheet" /> 
+    <link href="/Demo/css/mainPage/adminia-responsive.css" rel="stylesheet" />         
+    <link href="/Demo/css/plans.css" rel="stylesheet" /> 
+ 
 <body>
-
-				
-			<div class="span9">
-				
-				<h1 class="page-title">
-					<i class="icon-th-large"></i>
-					User Account					
-				</h1>
-				
-				
-				<div class="row">
-					
-					<div class="span9">
-				
-						<div class="widget">
-							
-							<div class="widget-header">
-								<h3>Basic Information</h3>
-							</div> <!-- /widget-header -->
-									
-							<div class="widget-content">
+	<div class="widget">
+		<div class="widget-content">
+			<div class="tabbable">
+				<br />
+				<div class="tab-content">
+					<div class="tab-pane active">
+						<form id="edit-profile" class="form-horizontal" >
+							<fieldset>
+								<div class="control-group" style="padding-left: 50px">
+									学号: &nbsp;									
+										<input type="text" class="input-medium disabled" id="studentno"
+											value="${student.studentno}" disabled="" />
+									&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	
+									姓名: &nbsp;										
+										<input type="text" class="input-medium disabled" id="studentname"
+											value="${student.studentname}" disabled="" />									
+								</div>								
 								
-								
-								
-								<div class="tabbable">
-						<ul class="nav nav-tabs">
-						  <li class="active">
-						    <a href="#1" data-toggle="tab">Profile</a>
-						  </li>
-						  <li><a href="#2" data-toggle="tab">Settings</a></li>
-						</ul>
-						
-						<br />
-						
-							<div class="tab-content">
-								<div class="tab-pane active" id="1">
-								<form id="edit-profile" class="form-horizontal" />
-									<fieldset>
+								<div class="control-group" style="padding-left: 50px">
+									性别: &nbsp;									
+										<input type="text" class="input-medium disabled" id="studentsex"
+											value="${student.studentsex}" disabled="" />
+									&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;
+									年龄: &nbsp;									
+										<input type="text" class="input-medium disabled" id="studentage"
+											value="${student.studentage}" disabled="" />									
+								</div>
 										
-										<div class="control-group">											
-											<label class="control-label" for="username">Username</label>
-											<div class="controls">
-												<input type="text" class="input-medium disabled" id="username" value="goideate" disabled="" />
-												<p class="help-block">Your username is for logging in and cannot be changed.</p>
-											</div> <!-- /controls -->				
-										</div> <!-- /control-group -->
-										
-										
-										<div class="control-group">											
-											<label class="control-label" for="firstname">First Name</label>
-											<div class="controls">
-												<input type="text" class="input-medium" id="firstname" value="Rod" />
-											</div> <!-- /controls -->				
-										</div> <!-- /control-group -->
-										
-										
-										<div class="control-group">											
-											<label class="control-label" for="lastname">Last Name</label>
-											<div class="controls">
-												<input type="text" class="input-medium" id="lastname" value="Howard" />
-											</div> <!-- /controls -->				
-										</div> <!-- /control-group -->
-										
-										
-										<div class="control-group">											
-											<label class="control-label" for="email">Email Address</label>
-											<div class="controls">
-												<input type="text" class="input-large" id="email" value="rod.howard@example.com" />
-											</div> <!-- /controls -->				
-										</div> <!-- /control-group -->
-										
-										
-										<br /><br />
-										
-										<div class="control-group">											
-											<label class="control-label" for="password1">Password</label>
-											<div class="controls">
-												<input type="password" class="input-medium" id="password1" value="password" />
-											</div> <!-- /controls -->				
-										</div> <!-- /control-group -->
-										
-										
-										<div class="control-group">											
-											<label class="control-label" for="password2">Confirm</label>
-											<div class="controls">
-												<input type="password" class="input-medium" id="password2" value="password" />
-											</div> <!-- /controls -->				
-										</div> <!-- /control-group -->
-										
-										
-											
-											<br />
-										
-											
-										<div class="form-actions">
-											<button type="submit" class="btn btn-primary">Save</button> 
-											<button class="btn">Cancel</button>
-										</div> <!-- /form-actions -->
-									</fieldset>
-								</form>
+								<div class="control-group" style="padding-left: 50px">
+									宿舍: &nbsp;								
+										<input type="text" class="input-medium disabled"
+											id="studentdormitoryno" value="${student.studentdormitoryno}"
+											disabled="" />
+											&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;
+									床号: &nbsp;
+										<input type="text" class="input-medium disabled" id="studentbed"
+											value="${student.studentbed}" disabled="" />																
+								</div>
+																
+								<div class="control-group" style="padding-left: 50px">
+									学院: &nbsp;									
+										<input type="text" class="input-medium disabled"
+											id="studentcollege" value="${student.studentcollege}" disabled="" />
+									&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;
+									专业: &nbsp;									
+										<input type="text" class="input-medium disabled" id="studentmajor"
+											value="${student.studentmajor}" disabled="" />
 								</div>
 								
-								<div class="tab-pane" id="2">
-									<form id="edit-profile2" class="form-horizontal" />
-										<fieldset>
-											
-											
-											<div class="control-group">
-												<label class="control-label" for="accounttype">Account Type</label>
-												<div class="controls">
-													<label class="radio">
-														<input type="radio" name="accounttype" value="option1" checked="checked" id="accounttype" />
-														POP3
-													</label>
-													<label class="radio">
-														<input type="radio" name="accounttype" value="option2" />
-														IMAP
-													</label>
-												</div>
-											</div>
-											<div class="control-group">
-												<label class="control-label" for="accountusername">Account Username</label>
-												<div class="controls">
-													<input type="text" class="input-large" id="accountusername" value="rod.howard@example.com" />
-													<p class="help-block">Leave blank to use your profile email address.</p>
-												</div>
-											</div>
-											<div class="control-group">
-												<label class="control-label" for="emailserver">Email Server</label>
-												<div class="controls">
-													<input type="text" class="input-large" id="emailserver" value="mail.example.com" />
-												</div>
-											</div>
-											<div class="control-group">
-												<label class="control-label" for="accountpassword">Password</label>
-												<div class="controls">
-													<input type="text" class="input-large" id="accountpassword" value="password" />
-												</div>
-											</div>
-											
-																						
-											
-											
-											<div class="control-group">
-												<label class="control-label" for="accountadvanced">Advanced Settings</label>
-												<div class="controls">
-													<label class="checkbox">
-														<input type="checkbox" name="accountadvanced" value="option1" checked="checked" id="accountadvanced" />
-														User encrypted connection when accessing this server
-													</label>
-													<label class="checkbox">
-														<input type="checkbox" name="accounttype" value="option2" />
-														Download all message on connection
-													</label>
-												</div>
-											</div>
-
-											
-											<br />
-											
-											<div class="form-actions">
-												<button type="submit" class="btn btn-primary">Save</button> <button class="btn">Cancel</button>
-											</div>
-										</fieldset>
-									</form>
+								<div class="control-group" style="padding-left: 50px">
+									电话: &nbsp;
+										<input type="text" class="input-medium disabled" id="studentphone"
+											value="${student.studentphone}" disabled="" />
+									&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;		
+									入学: &nbsp;
+										<input type="text" class="input-medium disabled" id="studenttime"
+											value="${student.studenttime}" disabled="" />
 								</div>
-								
-							</div>
-						  
-						  
-						</div>
-								
-								
-								
-								
-								
-								
-								
-								
-							</div> <!-- /widget-content -->
-							
-						</div> <!-- /widget -->
-						
-					</div> <!-- /span9 -->
-					
-				</div> <!-- /row -->
-				
-				
-				
-				
-				
-				
-				
-				
-				
-			</div> <!-- /span9 -->
-	
-
+								<br />
+								<div class="form-actions">
+									<button type="submit" class="btn btn-primary">保存</button>
+									<button class="btn">取消</button>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

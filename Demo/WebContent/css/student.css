@@ -342,11 +342,12 @@ input {
 }
 
 .account-details .account-name {
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 600;
 }
 
 .account-details .account-no {
+	font-size: 16px;
 	color: #888;
 }
 
