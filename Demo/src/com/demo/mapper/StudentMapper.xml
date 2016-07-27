@@ -34,8 +34,11 @@
 			<if test="studentno!=null and studentno!='' ">
 				and studentno like #{studentno}
 			</if>
-			<if test="studentname!=null and student!='' ">
+			<if test="studentname!=null and studentname!='' ">
 				and studentname like #{studentname}
+			</if>
+			<if test="studentpassword!=null and studentpassword!='' ">
+				and studentpassword like #{studentpassword}
 			</if>
 		</where>
 	</sql>
