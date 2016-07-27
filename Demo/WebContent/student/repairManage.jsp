@@ -98,7 +98,7 @@ label {
 				<th field="repairdormitoryno" width="10%" align="center">宿舍号</th>
 				<th field="thingid" width="10%" align="center">物品编号</th>
 				<th field="thingname" width="10%" align="center">物品名称</th>
-				<th field="repaircontent" width="20%" align="center">报修原因</th>
+				<th field="repaircontent" width="16%" align="center">报修原因</th>
 				<th field="repairtime" width="15%" align="center">报修时间</th>
 				<th field="repairdotime" width="15%" align="center">解决时间</th>
 				<th field="remarks" width="10%" align="center" hidden="true">描述</th>
