@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -14,6 +16,8 @@ import net.sf.json.JsonConfig;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+
 
 
 
@@ -69,7 +73,7 @@ public class StudentController {
 		
 		map.put("studentcollege", StringUtil.formatLike(student.getStudentcollege()));
 		
-		map.put("studenttime", student.getStudenttime());
+		map.put("studenttime",StringUtil.formatLike( student.getStudenttime()));
 		map.put("remarks;;", StringUtil.formatLike(student.getRemarks()));
 		
 		map.put("start", pageBean.getStart());
@@ -112,7 +116,7 @@ public class StudentController {
 		return null;
 	}
 	
-	/**
+	/**  
 	 * 通过ID查找实体
 	 * @param id
 	 * @param response
@@ -120,12 +124,17 @@ public class StudentController {
 	 * @throws Exception
 	 */
 	@RequestMapping("/findById")
-	public String findById(@RequestParam(value="id")String id,HttpServletResponse response)throws Exception{
-		System.out.println("查找---id-----------------");
+	public String findById(@RequestParam(value="id")String id,HttpServletResponse response,HttpServletRequest r)throws Exception{
+		System.out.println("查找---id-----------------" + id);
 		Student student = studentService.findById(id);
-		JSONObject jsonObject=JSONObject.fromObject(id);
+		System.out.println(student.getStudentage()+""+student.getStudentno()+""+student.getStudentname());
+		System.out.println("查找---student-----------------");
+	//	JSONObject jsonObject=JSONObject.fromObject(student);
+		HttpSession session=r.getSession();
+		session.setAttribute("student", student);
+	/*	System.out.println(jsonObject.get(1)+"+"+jsonObject.get(2));
 		ResponseUtil.write(response, jsonObject);
-		return null;
+*/		return null;
 	}
 	
 }
