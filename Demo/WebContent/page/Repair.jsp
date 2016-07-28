@@ -24,7 +24,7 @@
 		$("#dg").datagrid('load', {
 			"repairid" : $("#s_repairid").val(),
 			"repairfloor" : $("#s_repairfloor").val(),
-			"repairdormitoryno" : $("#s_repairdormitoryno").val(),
+			"thingid" : $("#s_s_thingid").val(),
 		});
 	}
 	//编辑修改
@@ -99,8 +99,7 @@ label {
 				<th field="repairid" width="10%" align="center">报修编号</th>
 				<th field="repairfloor" width="10%" align="center">楼号</th>
 				<th field="repairdormitoryno" width="10%" align="center">宿舍号</th>
-				<th field="thingid" width="10%" align="center">物品编号</th>
-				<th field="thingname" width="10%" align="center">物品名称</th>
+				<th field="thingid" width="15%" align="center">物品</th>
 				<th field="repaircontent" width="20%" align="center">报修原因</th>
 				<th field="repairtime" width="15%" align="center">报修时间</th>
 				<th field="repairdotime" width="15%" align="center">解决时间</th>
@@ -118,7 +117,7 @@ label {
 				onkeydown="if(event.keyCode==13) searchSaleChance()" />
 			&nbsp;楼号：&nbsp;<input type="text" id="s_repairfloor" size="20"
 				onkeydown="if(event.keyCode==13) searchSaleChance()" />
-			&nbsp;宿舍号：&nbsp;<input type="text" id="s_repairdormitoryno" size="20"
+			&nbsp;物品：&nbsp;<input type="text" id="s_thingid" size="20"
 				onkeydown="if(event.keyCode==13) searchSaleChance()" /> <a
 				href="javascript:searchSaleChance()" class="easyui-linkbutton"
 				iconCls="icon-search" plain="true">搜索</a>
@@ -147,14 +146,10 @@ label {
 						name="repairdormitoryno" readonly="readonly" /></td>
 				</tr>
 				<tr>
-					<td><label>物品编号</label></td>
+					<td><label>物品</label></td>
 					<td><input type="text" id="thingid" name="thingid"
 						readonly="readonly" /></td>
 				</tr>
-				<tr>
-					<td><label>物品名称</label></td>
-					<td><input type="text" id="thingname" name="thingname"
-						readonly="readonly" /></td>
 				</tr>
 				<tr>
 					<td><label>报修原因</label></td>

@@ -70,7 +70,6 @@ public class RepairController {
 		map.put("repairdormitoryno",
 				StringUtil.formatLike(s_repair.getRepairdormitoryno()));
 		map.put("thingid", s_repair.getThingid());
-		map.put("thingname", s_repair.getThingname());
 		map.put("repaircontent", s_repair.getRepaircontent());
 		map.put("repairtime", s_repair.getRepairtime());
 		map.put("repairdotime", s_repair.getRepairdotime());
@@ -104,6 +103,8 @@ public class RepairController {
 		
 		if (repair.getRepairid() == null || repair.getRepairid().equals("")) {
 			repair.setRepairid(IDFactory.createId());
+			System.out.println(repair.getRepairfloor());
+			System.out.println(repair.getRepairdormitoryno());
 			resultTotal=repairService.add(repair);
 		} else{
 			String str = repair.getRepairid();

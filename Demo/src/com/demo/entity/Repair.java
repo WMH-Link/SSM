@@ -31,17 +31,11 @@ public class Repair {
 	private String repairdormitoryno;
 
 	/**
-	 * 物品编号
+	 * 物品
 	 * 
 	 * @mbggenerated
 	 */
 	private String thingid;
-	
-	/**
-	 * 物品名称
-	 * @mbggenerated
-	 */
-	private String thingname;
 	
 	/**
 	 * 报修原因
@@ -101,14 +95,6 @@ public class Repair {
 
 	public void setThingid(String thingid) {
 		this.thingid = thingid;
-	}
-	
-	public String getThingname() {
-		return thingname;
-	}
-
-	public void setThingname(String thingname) {
-		this.thingname = thingname;
 	}
 
 	public String getRepaircontent() {

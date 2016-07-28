@@ -19,7 +19,7 @@
 	src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript">
 	var url;
-	
+
 	//根据条件查询信息
 	function searchSaleChance() {
 		$("#dg").datagrid('load', {
@@ -93,12 +93,11 @@ label {
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true" align="center"></th>
-				<th field="repairid" width="10%" align="center">报修编号</th>
+				<th field="repairid" width="20%" align="center">报修编号</th>
 				<th field="repairfloor" width="10%" align="center">楼号</th>
 				<th field="repairdormitoryno" width="10%" align="center">宿舍号</th>
-				<th field="thingid" width="10%" align="center">物品编号</th>
-				<th field="thingname" width="10%" align="center">物品名称</th>
-				<th field="repaircontent" width="16%" align="center">报修原因</th>
+				<th field="thingid" width="10%" align="center">物品</th>
+				<th field="repaircontent" width="15%" align="center">报修原因</th>
 				<th field="repairtime" width="15%" align="center">报修时间</th>
 				<th field="repairdotime" width="15%" align="center">解决时间</th>
 				<th field="remarks" width="10%" align="center" hidden="true">描述</th>
@@ -123,14 +122,25 @@ label {
 	</div>
 
 	<div id="dlg" class="easyui-dialog"
-		style="width: 380px; height: 205px; padding: 10px 20px" closed="true"
+		style="width: 380px; height: 300px; padding: 10px 20px" closed="true"
 		buttons="#dlg-buttons">
 
 		<form id="fm" method="post" style="text-align: left; font-size: 20px;">
 			<table cellspacing="8px">
 				<tr>
-					<td><label>物品名称</label></td>
-					<td><input type="text" id="thingname" name="thingname"/></td>
+					<td><label>楼号</label></td>
+					<td><input type="text" id="repairfloor" name="repairfloor"
+						value="${student.studentfoor}" readonly="readonly" /></td>
+				</tr>
+				<tr>
+					<td><label>寝室号</label></td>
+					<td><input type="text" id="repairdormitoryno"
+						name="repairdormitoryno" value="${student.studentdormitoryno}"
+						readonly="readonly" /></td>
+				</tr>
+				<tr>
+					<td><label>物品</label></td>
+					<td><input type="text" id="thingid" name="thingid" /></td>
 				</tr>
 				<tr>
 					<td><label>报修原因</label></td>
@@ -140,7 +150,7 @@ label {
 				<tr>
 					<td><label>报修时间</label></td>
 					<td><input type="text" id="repairtime" name="repairtime"
-						readonly="readonly"  value=""/></td>
+						readonly="readonly" value="" /></td>
 				</tr>
 			</table>
 		</form>
