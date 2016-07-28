@@ -125,7 +125,7 @@
 	  <li class="submenu"> <a style="font-size: 18px;"><i class="icon icon-th-list"></i> <span>寝室管理</span> </a>
 	      <ul>
 	        <li><a href="javascript:openTab('公共物品管理','thing.jsp','icon-khxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 195px;"><span style="font-size: 16px;">公共物品管理</span></a></li>
-			<li><a href="javascript:openTab('报修记录','Repair.jsp','icon-khlsgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khlsgl'" style="width: 195px;"><span style="font-size: 16px;">保修记录</span></a></li>
+			<li><a href="javascript:openTab('报修记录','Repair.jsp','icon-khlsgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khlsgl'" style="width: 195px;"><span style="font-size: 16px;">报修记录</span></a></li>
 			<li><a href="javascript:openTab('卫生记录','hygieneManage.jsp','icon-khxxgl')" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-khxxgl'" style="width: 195px;"><span style="font-size: 16px;">卫生记录</span></a></li>
 	   
 	      </ul>

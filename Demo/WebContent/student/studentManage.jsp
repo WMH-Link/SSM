@@ -76,10 +76,14 @@
 										<input type="text" class="input-medium disabled" id="studentbed"
 											value="${student.studentbed}" disabled="" />																
 								</div>
-								<div class="form-actions">
+								<br/>
+								<br/>
+								<br/>
+								<br/>
+								<!-- <div class="form-actions">
 									<button type="submit" class="btn btn-primary">保存</button>
 									<button class="btn">取消</button>
-								</div>
+								</div> -->
 							</fieldset>
 						</div>
 					</div>

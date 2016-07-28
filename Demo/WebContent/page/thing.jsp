@@ -56,7 +56,7 @@
 		 return;
 	 }
 	 var row=selectedRows[0];
-	 $("#dlg").dialog("open").dialog("setTitle","修改物品请客");
+	 $("#dlg").dialog("open").dialog("setTitle","修改物品");
 	 $("#fm").form("load",row);
 	 url="${pageContext.request.contextPath}/thing/save.do?thingid="+row.thingid;
  }

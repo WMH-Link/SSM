@@ -23,8 +23,8 @@
 					<div class="tab-pane active">
 						<div id="edit-profile" class="form-horizontal">
 							<fieldset>
-								<input id="studentId" type="hidden" value="${student.studentid}"
-									name="studentId">
+								<input id="studentName" type="hidden" value="${student.studentname}"
+									name="studentName">
 								<div class="control-group">
 									<label class="control-label">反馈内容</label>
 									<div class="controls">
@@ -77,7 +77,7 @@ $(function(){
             			type:"post",
             			dataType:"json",
             			data:{
-            					studentId:$("#studentId").val(),
+            					studentName:$("#studentName").val(),
             					feedContent:$("#feedContent").val(),
             					remarks:$("#remarks").val()
             			},

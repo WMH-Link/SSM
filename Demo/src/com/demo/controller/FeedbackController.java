@@ -89,14 +89,14 @@ public class FeedbackController {
 	{
 		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");//设置日期格式
 		String time=df.format(new Date());
-		String studentid=request.getParameter("studentId");
+		String studentname=request.getParameter("studentName");
 		String feedcontent=request.getParameter("feedContent");
 
 		//调用service
 		Feedback feedback=new Feedback();
 		feedback.setFeedbackid(IDFactory.createId());
 		feedback.setNoticecontent(feedcontent);
-		feedback.setNoticepeople(studentid);
+		feedback.setNoticepeople(studentname);
 		feedback.setRemarks(remarks);
 		feedback.setNoticetime(time);
 		int flag=feedbackService.add(feedback);
