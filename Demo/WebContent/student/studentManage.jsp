@@ -61,7 +61,7 @@
 											value="${student.studenttime}" disabled="" />
 								</div>
 								<div class="control-group" style="padding-left: 60px">
-									楼层: &nbsp;								
+									楼号: &nbsp;								
 										<input type="text" class="input-medium disabled"
 											id="studentfoor" value="${student.studentfoor}"
 											disabled="" />

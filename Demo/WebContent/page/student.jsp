@@ -127,7 +127,7 @@
 				<th field="studentpassword" width="100" align="center">学生密码</th>
 				<th field="studentname" width="100" align="center">学生姓名</th>
 				<th field="studentsex" width="100" align="center">学生性别</th>
-				<th field="studentfoor" width="100" align="center">学生宿舍楼层</th>
+				<th field="studentfoor" width="100" align="center">宿舍楼号</th>
 				<th field="studentdormitoryno" width="100" align="center">学生宿舍</th>
 				<th field="studentbed" width="100" align="center">学生床号</th>
 				<th field="studentage" width="100" align="center">学生年龄</th>
@@ -221,7 +221,7 @@
 					<td><input type="text" id="studenttime" name="studenttime"/></td>
 					<td><p>格式为:yyyy-mmm-dd</p></td>
 					
-					<td>学生宿舍楼层：</td>
+					<td>宿舍楼号：</td>
 					<td><input type="text" id="studentfoor" name="studentfoor"
 						class="easyui-validatebox" required="true" /></td>
 				</tr>
