@@ -72,7 +72,7 @@
 		$("#studentpassword").val("");
 
 		$("#studentsex").val("");
-
+		$("#studentfoor").val("");
 		$("#studentdormitoryno").val("");
 		$("#studentbed").val("");
 
@@ -127,6 +127,7 @@
 				<th field="studentpassword" width="100" align="center">学生密码</th>
 				<th field="studentname" width="100" align="center">学生姓名</th>
 				<th field="studentsex" width="100" align="center">学生性别</th>
+				<th field="studentfoor" width="100" align="center">学生宿舍楼层</th>
 				<th field="studentdormitoryno" width="100" align="center">学生宿舍</th>
 				<th field="studentbed" width="100" align="center">学生床号</th>
 				<th field="studentage" width="100" align="center">学生年龄</th>
@@ -189,21 +190,6 @@
 					</select>
 				</tr>
 				<tr>
-					<td>学生宿舍：</td>
-					<td><input type="text" id="studentdormitoryno" name="studentdormitoryno"
-						class="easyui-validatebox" required="true" /></td>
-					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td>学生床号：</td>
-					<td><select class="easyui-combobox" name="studentbed"
-						id="studentbed" style="width: 154px" editable="false"
-						panelHeight="auto">
-							<option value="1号床铺">1号床铺</option>
-							<option value="2号床铺">2号床铺</option>
-							<option value="3号床铺">3号床铺</option>
-							<option value="4号床铺">4号床铺</option>
-					</select>
-				</tr>
-				<tr>
 					<td>学生年龄：</td>
 					<td><input type="text" id="studentage" name="studentage"
 						class="easyui-validatebox" required="true" /></td>
@@ -232,11 +218,27 @@
 				</tr>
 				<tr>
 					<td>学生入住时间：</td>
-					<td><input type="text" id="studenttime" name="studenttime"
-						/></td>
-					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-					<td></td>
+					<td><input type="text" id="studenttime" name="studenttime"/></td>
 					<td><p>格式为:yyyy-mmm-dd</p></td>
+					
+					<td>学生宿舍楼层：</td>
+					<td><input type="text" id="studentfoor" name="studentfoor"
+						class="easyui-validatebox" required="true" /></td>
+				</tr>
+				<tr>
+					<td>学生宿舍：</td>
+					<td><input type="text" id="studentdormitoryno" name="studentdormitoryno"
+						class="easyui-validatebox" required="true" /></td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td>学生床号：</td>
+					<td><select class="easyui-combobox" name="studentbed"
+						id="studentbed" style="width: 154px" editable="false"
+						panelHeight="auto">
+							<option value="1号床铺">1号床铺</option>
+							<option value="2号床铺">2号床铺</option>
+							<option value="3号床铺">3号床铺</option>
+							<option value="4号床铺">4号床铺</option>
+					</select>
 				</tr>
 				<tr>
 					<td>描述：</td>
