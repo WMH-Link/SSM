@@ -18,6 +18,7 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript">
+	var noticeauthor = '${adminUser.adminname}';
 	var url;
 	//关键字查询
 	function searchSaleChance() {
@@ -33,7 +34,8 @@
 	function openSaleChanceAddDialog() {
 		$("#dlg").dialog("open").dialog("setTitle", "添加公告信息");
 		$("#createMan").val('${currentUser.trueName}');
-		$("#createTime").val(getCurrentDateTime());
+		$("#noticetime").val(getCurrentDateTime());
+		$("#noticeauthor").val(noticeauthor);
 		url = "${pageContext.request.contextPath}/Notice/save.do";
 	}
 
@@ -103,7 +105,7 @@
 				<th field="noticetype" width="10%" align="center">公告类型</th>
 				<th field="noticetitle" width="15%" align="center">公告标题</th>
 				<th field="noticeauthor" width="10%" align="center">发布人</th>
-				<th field="noticecontent" width="45%" align="center">发布内容</th>
+				<th field="noticecontent" width="40%" align="center">发布内容</th>
 				<th field="noticetime" width="15%" align="center">发布时间</th>
 			</tr>
 		</thead>
@@ -147,14 +149,18 @@
 				</tr>
 				<tr>
 					<td><font color="red">*</font>公告类型</td>
-					<td><input type="text" id="noticetype" name="noticetype" /></td>
+					<td><select class="easyui-combobox" id="noticetype"
+						editable="false" panelHeight="auto" name = "noticetype">
+							<option value="新闻">新闻</option>
+							<option value="通知">通知</option>
+					</select></td>
 				</tr>
 				<tr>
 					<td><font color="red">*</font>公告标题</td>
 					<td><input type="text" id="noticetitle" name="noticetitle" /></td>
 
 				</tr>
-				<tr>
+				<tr hidden="true">
 					<td><font color="red">*</font>发布人</td>
 					<td><input type="text" id="noticeauthor" name="noticeauthor" /></td>
 				</tr>
@@ -166,8 +172,7 @@
 				<tr>
 					<td><font color="red">*</font>发布时间</td>
 					<td><input type="datetime" id="noticetime" name="noticetime"
-						class="easyui-validatebox" />&nbsp;</td>
-					<td><font color="red">格式：2016-01-01 00:00</font></td>
+						class="easyui-validatebox" />
 				</tr>
 			</table>
 		</form>

@@ -19,6 +19,18 @@
 	src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript">
 	var url;
+
+	$(function() {
+		$("#assignMan").combobox({
+			onSelect : function(record) {
+				if (record.trueName != '') {
+					$("#repairdotime").val(getCurrentDateTime());
+				} else {
+					$("#repairdotime").val("");
+				}
+			}
+		});
+	});
 	//根据条件查询信息
 	function searchSaleChance() {
 		$("#dg").datagrid('load', {
@@ -37,6 +49,7 @@
 		var row = selectedRows[0];
 		$("#dlg").dialog("open").dialog("setTitle", "添加报修记录解决时间");
 		$("#fm").form("load", row);
+		$("#repairdotime").val(getCurrentDateTime());
 		url = "${pageContext.request.contextPath}/Repair/save.do?repairid="
 				+ row.repairid;
 	}
@@ -92,7 +105,7 @@ label {
 	<table id="dg" title="报修管理" class="easyui-datagrid " fitColumns="true"
 		pagination="true" rownumbers="true"
 		url="${pageContext.request.contextPath}/Repair/list.do" fit="true"
-		toolbar="#tb"  style="">
+		toolbar="#tb" style="">
 		<thead>
 			<tr>
 				<th field="cb" checkbox="true" align="center"></th>
@@ -164,7 +177,7 @@ label {
 				<tr>
 					<td><label>解决时间</label></td>
 					<td><input type="datetime" id="repairdotime"
-						name="repairdotime" class="easyui-validatebox" />&nbsp;<font
+						name="repairdotime" class="easyui-validatebox" /><font
 						color="red">*</font></td>
 				</tr>
 			</table>

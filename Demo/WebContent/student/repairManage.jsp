@@ -18,6 +18,8 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript">
+	var repairfloor='${student.studentfoor}';
+	var repairdormitoryno = '${student.studentdormitoryno}';
 	var url;
 
 	//根据条件查询信息
@@ -34,6 +36,8 @@
 		$("#dlg").dialog("open").dialog("setTitle", "添加报修记录");
 		$("#createMan").val('${currentUser.trueName}');
 		$("#repairtime").val(getCurrentDateTime());
+		$("#repairfloor").val(repairfloor);
+		$("#repairdormitoryno").val(repairdormitoryno);
 		url = "${pageContext.request.contextPath}/Repair/save.do";
 	}
 
@@ -130,12 +134,12 @@ label {
 				<tr>
 					<td><label>楼号</label></td>
 					<td><input type="text" id="repairfloor" name="repairfloor"
-						value="${student.studentfoor}" readonly="readonly" /></td>
+						 readonly="readonly" /></td>
 				</tr>
 				<tr>
 					<td><label>寝室号</label></td>
 					<td><input type="text" id="repairdormitoryno"
-						name="repairdormitoryno" value="${student.studentdormitoryno}"
+						name="repairdormitoryno"
 						readonly="readonly" /></td>
 				</tr>
 				<tr>
