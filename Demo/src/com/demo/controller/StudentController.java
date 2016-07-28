@@ -64,6 +64,7 @@ public class StudentController {
 		map.put("studentpassword", StringUtil.formatLike(student.getStudentpassword()));
 		map.put("studentname", StringUtil.formatLike(student.getStudentname()));
 		map.put("studentsex", StringUtil.formatLike(student.getStudentsex()));
+		map.put("studentfoor", StringUtil.formatLike(student.getStudentfoor()));
 		map.put("studentdormitoryno", StringUtil.formatLike(student.getStudentdormitoryno()));
 		map.put("studentbed", StringUtil.formatLike(student.getStudentbed()));
 		map.put("studentage", StringUtil.formatLike(student.getStudentage()));
