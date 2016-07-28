@@ -84,7 +84,7 @@
 	 $("#checksfloor").val("");
 	 $("#checksdormitoryno").val("");
 	 $("#checkscontent").val("");
-	 $("#checkstime").datebobox("setValue","");
+	 $("#checkstime").datebox("setValue","");
 	 $("#remarks").val("");
  }
  
@@ -123,7 +123,7 @@
 <title>Insert title here</title>
 </head>
 <body style="margin: 1px">
- <table id="dg" title="卫生记录管理" class="easyui-datagrid"
+ <table id="dg" title="考勤管理" class="easyui-datagrid"
    fitColumns="true" pagination="true" rownumbers="true"
    url="${pageContext.request.contextPath}/checksController/list.do" fit="true" toolbar="#tb">
    <thead>

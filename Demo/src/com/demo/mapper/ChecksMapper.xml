@@ -30,7 +30,7 @@
 					and checksDormitoryNo like #{checksdormitoryno}
 				</if>
 				<if test="checkstime!=null and checkstime!='' ">
-					and checksGrade = #{checkstime}
+					and checksTime = #{checkstime}
 				</if>
 		</where>
   </sql>

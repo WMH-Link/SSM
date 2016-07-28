@@ -85,7 +85,7 @@
 	 $("#hygienedormitoryno").val("");
 	 $("#hygienecontent").val("");
 	 $("#hygienegrade").val("");
-	 $("#hygienetime").combobox("setValue","");
+	 $("#hygienetime").datebox("setValue","");
 	 $("#remarks").val("");
  }
  
