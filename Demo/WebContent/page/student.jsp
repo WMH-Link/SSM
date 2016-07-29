@@ -167,19 +167,16 @@
 				<tr>
 					<td>学生学号：</td>
 					<td><input type="text" id="studentno" name="studentno"
-						class="easyui-validatebox" required="true" />&nbsp;<font
-						color="red">*</font></td>
+						class="easyui-validatebox" required="true" /></td>
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 					<td>学生密码：</td>
 					<td><input type="text" id="studentpassword"
-						name="studentpassword" class="easyui-validatebox" required="true" />&nbsp;<font
-						color="red">*</font></td>
+						name="studentpassword" class="easyui-validatebox" required="true" /></td>
 				</tr>
 				<tr>
 					<td>学生姓名：</td>
 					<td><input type="text" id="studentname" name="studentname"
-						class="easyui-validatebox" required="true" />&nbsp;<font
-						color="red">*</font></td>
+						class="easyui-validatebox" required="true" /></td>
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 					<td>学生性别：</td>
 					<td><select class="easyui-combobox" name="studentsex"
@@ -196,8 +193,7 @@
 					<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 					<td>学生联系电话</td>
 					<td><input type="text" id="studentphone" name="studentphone"
-						class="easyui-validatebox" required="true" />&nbsp;<font
-						color="red">*</font></td>
+						class="easyui-validatebox" required="true" /></td>
 				</tr>
 				<tr>
 					<td>学生学院:</td>
