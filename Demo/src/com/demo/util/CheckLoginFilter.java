@@ -33,7 +33,7 @@ public class CheckLoginFilter implements Filter
         	arg2.doFilter(arg0,arg1);
         	return;
         }       
-        else if (student==null||adminUser==null){  
+        else if (student==null && adminUser==null){  
             response.sendRedirect(request.getContextPath()+"/jsp/loginPage.jsp");  //返回重新登录界面  
             return;  
         }          
