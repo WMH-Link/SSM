@@ -47,7 +47,7 @@
 								<div class="form-actions">
 									<input type="submit" class="btn btn-primary" id="FBBtn" />
 
-									<!-- <button class="btn">Cancel</button> -->
+									<button class="btn" onclick="close2()">取消</button>
 								</div>
 								<!-- /form-actions -->
 							</fieldset>
@@ -62,6 +62,9 @@
 	<script src="/Demo/bootstrap/js/jquery-1.9.1.min.js"></script>
 <script src="/Demo/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript">
+function close2(){
+	window.parent.document.getElementById("tab2").click();	
+}
 $(function(){
 	$("#FBBtn").click(function(){  
             // 做表单输入校验  

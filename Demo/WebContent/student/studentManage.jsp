@@ -76,7 +76,7 @@
 										<input type="text" class="input-medium disabled" id="studentbed"
 											value="${student.studentbed}" disabled="" />																
 								</div>
-								<br/>
+
 								<div class="form-actions">
 									<!-- <button type="submit" class="btn btn-primary">保存</button> -->
 									<button class="btn" onclick="close1()">关闭</button>
