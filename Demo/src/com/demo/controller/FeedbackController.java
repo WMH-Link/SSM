@@ -87,7 +87,7 @@ public class FeedbackController {
 	@RequestMapping("/addFB")
 	public void feedbackAdd(String studentId,String feedContent,String remarks) throws IOException
 	{
-		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");//设置日期格式
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式
 		String time=df.format(new Date());
 		String studentname=request.getParameter("studentName");
 		String feedcontent=request.getParameter("feedContent");

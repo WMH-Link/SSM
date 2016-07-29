@@ -150,14 +150,15 @@
 				<tr>
 					<td><font color="red">*</font>公告类型</td>
 					<td><select class="easyui-combobox" id="noticetype"
-						editable="false" panelHeight="auto" name = "noticetype">
+						editable="false" panelHeight="auto" name="noticetype">
 							<option value="新闻">新闻</option>
 							<option value="通知">通知</option>
 					</select></td>
 				</tr>
 				<tr>
 					<td><font color="red">*</font>公告标题</td>
-					<td><input type="text" id="noticetitle" name="noticetitle" /></td>
+					<td><input type="text" id="noticetitle" name="noticetitle"
+						class="easyui-validatebox" required="true" /></td>
 
 				</tr>
 				<tr hidden="true">
@@ -167,7 +168,8 @@
 				<tr>
 					<td><font color="red">*</font>发布内容</td>
 					<td colspan="4"><textarea id="noticecontent"
-							name="noticecontent" style="width: 300px; height: 100px;"></textarea></td>
+							name="noticecontent" style="width: 300px; height: 100px;"
+							class="easyui-validatebox" required="true"></textarea></td>
 				</tr>
 				<tr>
 					<td><font color="red">*</font>发布时间</td>
