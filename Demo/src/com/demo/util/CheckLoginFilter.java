@@ -29,7 +29,11 @@ public class CheckLoginFilter implements Filter
         HttpServletResponse response = (HttpServletResponse) arg1;  
         Student student = (Student) request.getSession().getAttribute("student");  
         Admin adminUser = (Admin) request.getSession().getAttribute("adminUser");
-        if(student==null||adminUser==null){  
+        if(request.getRequestURI().indexOf("loginPage.jsp")>-1) {
+        	arg2.doFilter(arg0,arg1);
+        	return;
+        }       
+        else if (student==null||adminUser==null){  
             response.sendRedirect(request.getContextPath()+"/jsp/loginPage.jsp");  //返回重新登录界面  
             return;  
         }          
