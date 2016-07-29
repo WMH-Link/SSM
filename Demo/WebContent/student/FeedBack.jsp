@@ -85,7 +85,10 @@ $(function(){
             				alert("error");
             			},
             			success:function(response){
+            				$("#feedContent").val(""),
+            				$("#remarks").val(""),            				
             				alert("提交成功");
+            				window.parent.document.getElementById("tab2").click();
             			}
             			
             		});

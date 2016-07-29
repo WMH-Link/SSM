@@ -10,7 +10,7 @@
     <link href="/Demo/css/mainPage/adminia.css" rel="stylesheet" /> 
     <link href="/Demo/css/mainPage/adminia-responsive.css" rel="stylesheet" />         
     <link href="/Demo/css/plans.css" rel="stylesheet" /> 
- 
+
 <body>
 	<div class="widget" >
 		<div class="widget-content">
@@ -77,13 +77,10 @@
 											value="${student.studentbed}" disabled="" />																
 								</div>
 								<br/>
-								<br/>
-								<br/>
-								<br/>
-								<!-- <div class="form-actions">
-									<button type="submit" class="btn btn-primary">保存</button>
-									<button class="btn">取消</button>
-								</div> -->
+								<div class="form-actions">
+									<!-- <button type="submit" class="btn btn-primary">保存</button> -->
+									<button class="btn" onclick="close1()">关闭</button>
+								</div> 
 							</fieldset>
 						</div>
 					</div>
@@ -91,5 +88,11 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+
+function close1(){
+	window.parent.document.getElementById("tab1").click();	
+}
+</script>
 </body>
 </html>

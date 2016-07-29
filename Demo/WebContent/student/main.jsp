@@ -40,6 +40,10 @@ $(function(){
 		}
 	}
 	
+	function closeTab(text){
+		$("#tabs").tabs("close",text);
+	}
+	
 	function logout(){
 		$.messager.confirm("系统提示","您确定要退出系统吗？",function(r){
 			if(r){
@@ -51,6 +55,9 @@ $(function(){
 
 </head>
 <body>
+<input type="hidden" id="tab1"  onclick="closeTab('个人信息')" />
+<input type="hidden" id="tab2" onclick="closeTab('反馈')" />
+
 <div class="navbar navbar-fixed-top" >	
 	<div class="navbar-inner" style="background-color: #333" >		
 		<div class="container">							
