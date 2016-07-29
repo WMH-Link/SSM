@@ -142,11 +142,11 @@ public class LoginController {
 		map.put("studentpassword", studentpassword);
 		List<Student> studentInfo=studentService.find(map);
 		
-		System.out.print("studentid"+studentInfo.get(0).getStudentid()+",studentpassword="+studentpassword);
-		if(studentInfo.get(0) != null)
+		if(studentInfo.size()>0&&studentInfo.get(0)!=null)
 		{
 			flag= true;	
 		}
+
 		//返回登录验证信息
 		JSONObject json=new JSONObject();
 		if(flag){
